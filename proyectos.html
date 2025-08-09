@@ -2,68 +2,99 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Proyectos – Todo Escape Iván</title>
+  <title>Mis Proyectos – Todo Escape Iván</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #fdfdfd;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #fdfdfd, #e8f0ff);
       margin: 0;
+      padding: 0;
+      color: #2c3e50;
+}
+
+    header {
+      background-color: #8e44ad;
+      color: white;
       padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
     h1 {
-      color: #2c3e50;
-      text-align: center;
-      margin-bottom: 30px;
+      margin: 0;
+      font-size: 2em;
+      letter-spacing: 1px;
+}
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px 20px;
 }
 
     ul {
+      list-style: none;
+      padding: 0;
+}
+
+    ul li {
+      background-color: #ffffff;
+      margin-bottom: 15px;
+      padding: 15px 20px;
+      border-left: 6px solid #3498db;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       font-size: 1.1em;
-      line-height: 1.6;
-      max-width: 600px;
-      margin: auto;
-      padding-left: 20px;
-      color: #333;
+      transition: transform 0.2s ease;
+}
+
+    ul li:hover {
+      transform: scale(1.02);
+      background-color: #f0f8ff;
 }
 
 .volver {
       text-align: center;
-      margin: 50px 0;
+      margin: 40px 0;
 }
 
 .volver a {
       background-color: #3498db;
       color: white;
-      padding: 12px 24px;
+      padding: 14px 28px;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 1.2em;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
       display: inline-block;
 }
 
 .volver a:hover {
       background-color: #2980b9;
+      transform: scale(1.05);
 }
   </style>
 </head>
 <body>
 
-  <h1>Mis Proyectos</h1>
+  <header>
+    <h1>🚀 Mis Proyectos</h1>
+  </header>
 
-  <ul>
-    <li>Proyecto 001 – Ciberseguridad</li>
-    <li>LabEx – Desafío Hydra</li>
-    <li>Guía básica de Nmap</li>
-    <li>Documentación en Obsidian</li>
-  </ul>
+  <main>
+    <ul>
+      <li>🔐 <strong>Proyecto 001 – Ciberseguridad</strong><br>Explorando fundamentos, herramientas y buenas prácticas.</li>
+      <li>🧪 <strong>LabEx – Desafío Hydra</strong><br>Resolviendo retos técnicos en entornos virtuales.</li>
+      <li>📊 <strong>Guía básica de Nmap</strong><br>Escaneo de redes y análisis de puertos paso a paso.</li>
+      <li>🗂️ <strong>Documentación en Obsidian</strong><br>Organizando conocimiento con enlaces y estructura digital.</li>
+    </ul>
 
-  <div class="volver">
-    <a href="index.html">← Volver a la página principal</a>
-  </div>
+    <div class="volver">
+      <a href="index.html">← Volver a la página principal</a>
+    </div>
+  </main>
 
 </body>
 </html>
-
