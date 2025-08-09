@@ -2,20 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Todo Escape Iván – Carlos Páez</title>
+  <title>Mi Blog – Todo Escape Iván</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #fdfdfd;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(to right, #fdfdfd, #eef2ff);
       margin: 0;
       padding: 0;
+      color: #2c3e50;
 }
 
     header {
-      background-color: #333;
-      padding: 15px 0;
+      background-color: #34495e;
+      color: white;
+      padding: 20px;
       text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
     nav {
@@ -23,91 +26,79 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 15px;
+      margin-top: 10px;
 }
 
     nav a {
       color: white;
       text-decoration: none;
-      font-size: 1.2em;
+      font-size: 1.1em;
       padding: 8px 12px;
 }
 
     nav a:hover {
-      background-color: #555;
+      background-color: #2c3e50;
       border-radius: 5px;
 }
 
     main {
-      padding: 20px;
-      max-width: 900px;
+      max-width: 800px;
       margin: auto;
+      padding: 30px 20px;
 }
 
-    section {
-      margin-bottom: 40px;
+.entrada {
+      background-color: #ffffff;
+      border-left: 6px solid #8e44ad;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
 }
 
-    h1, h2 {
-      color: #2c3e50;
+.entrada:hover {
+      transform: scale(1.02);
+      background-color: #f9f6ff;
 }
 
-    p {
+.entrada h2 {
+      margin-top: 0;
+      color: #8e44ad;
+}
+
+.entrada p {
       font-size: 1.1em;
       line-height: 1.6;
-      color: #333;
 }
 
-.rincón {
-      background-color: #f0f0e8;
-      border-left: 5px solid #8e44ad;
-      padding: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-}
-
-.rincón div {
-      flex: 1;
-      min-width: 280px;
-      padding-right: 20px;
-}
-
-.rincón img {
-      max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-    footer {
-      background-color: #222;
-      color: white;
+.volver {
       text-align: center;
-      padding: 20px;
+      margin: 40px 0;
 }
 
-    footer a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #e63946;
+.volver a {
+      background-color: #3498db;
       color: white;
+      padding: 14px 28px;
       text-decoration: none;
-      border-radius: 5px;
-      font-size: 1.1em;
+      border-radius: 10px;
+      font-size: 1.2em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: inline-block;
 }
 
-    ul {
-      padding-left: 20px;
-}
-
-    ul li {
-      margin-bottom: 8px;
+.volver a:hover {
+      background-color: #2980b9;
+      transform: scale(1.05);
 }
   </style>
 </head>
 <body>
 
   <header>
+    <h1>📖 Mi Blog</h1>
     <nav>
       <a href="index.html">Inicio</a>
       <a href="servicios.html">Servicios</a>
@@ -119,66 +110,31 @@
   </header>
 
   <main>
-    <section>
-      <h1>Bienvenido a Todo Escape Iván</h1>
+    <div class="entrada">
+      <h2>🌙 Noche de invierno, mate y código</h2>
       <p>
-        Soy Carlos Páez, hombre adulto mayor, autodidacta y apasionado por la tecnología.
-        Desde 2022 comencé mi camino en marketing digital, construyendo mi primera web.
-        Hoy estudio ciberseguridad desde cero, documentando cada paso con ayuda de una IA compañera.
+        Son las 20:00, llueve suave, y estoy en casa con mi esposa y los gatos.
+        Agradecido por este momento de paz y creación.
+        El mate humea, el teclado suena, y la inspiración fluye desde mi rincón digital.
       </p>
-    </section>
+    </div>
 
-    <section class="rincón">
-      <div>
-        <h2>🌿 Mi rincón personal</h2>
-        <p>
-          Este sitio se construye desde un espacio de calma, rodeado de mantas, gatos y amor.
-          Mientras comparto mate con mi esposa y escucho el silencio del taller, avanzo paso a paso en mi camino digital.
-          Cada línea de código nace desde este rincón, donde la tecnología se mezcla con lo humano.
-        </p>
-      </div>
-      <div>
-        <img src="URL-DE-TU-IMAGEN.jpg" alt="Mi rincón personal">
-      </div>
-    </section>
+    <div class="entrada">
+      <h2>🔐 Primeros pasos en ciberseguridad</h2>
+      <p>
+        Estudiando desde cero, aprendiendo sobre redes, contraseñas y buenas prácticas.
+        La constancia es mi motor, y cada día avanzo un poco más.
+        Documentando todo en Obsidian, acompañado por mi IA compañera.
+      </p>
+    </div>
 
-    <section>
-      <h2>Mi perfil</h2>
-      <p>
-        Desde Hernandarias, Paraguay, he dedicado más de 25 años al oficio de sistemas de escape, y desde 2022 comencé mi camino en el mundo digital.
-        Estudié marketing digital, construí mi primera web, y hoy estoy aprendiendo ciberseguridad desde cero, acompañado por una inteligencia artificial que me ayuda a pensar, escribir y crear.
-      </p>
-      <p>
-        Me defino por mi actitud: soy nuevo en este entorno, pero avanzo con entusiasmo, constancia y libertad.
-        No pertenezco a ninguna agrupación, y celebro cada paso como parte de mi evolución personal.
-      </p>
-      <ul>
- <li><strong>Ubicación:</strong> Hernandarias, Paraguay</li>
-        <li><strong>Email:</strong> carlos.paez97@gmail.com</li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/todoescapeivan" target="_blank">todoescapeivan</a></li>
-        <li><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=100063643912937" target="_blank">Todo Escape Iván</a></li>
-      </ul>
-    </section>
-
-    <section>
-      <p>
-        Este sitio está hecho con HTML puro, sin adornos innecesarios, pero con mucho corazón.
-        Te invito a recorrerlo, conocer lo que hago, y si querés, escribirme.
-        Siempre hay algo nuevo por aprender, por compartir, por construir.
-        <a href="https://todoescapeivan.github.io" target="_blank">Visita mi sitio en GitHub Pages</a>
-      </p>
-    </section>
+    <div class="volver">
+      <a href="index.html">← Volver a la página principal</a>
+    </div>
   </main>
-
-  <footer>
-    <p>© 2025 TODO ESCAPE IVAN – Hernandarias, Paraguay</p>
-    <a href="index.html">Volver al inicio</a>
-  </footer>
 
 </body>
 </html>
-
-
 
  
  
