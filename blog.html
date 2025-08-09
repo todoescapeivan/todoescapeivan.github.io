@@ -1,184 +1,123 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Blog – Todo Escape Iván</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fdfdfd;
-      color: #2c3e50;
-      padding: 20px;
       margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(to right, #fdfdfd, #eef2ff);
+      color: #2c3e50;
+}
+
+    header {
+      background: linear-gradient(to right, #8e44ad, #6c3483);
+      padding: 20px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
     nav {
-      background-color: #eaeaea;
-      padding: 10px 20px;
-      margin-bottom: 30px;
-      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
 }
 
     nav a {
-      margin-right: 15px;
+      color: white;
       text-decoration: none;
-      color: #2c3e50;
-      font-weight: bold;
+      font-size: 1.1em;
+      padding: 10px 16px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
 }
 
     nav a:hover {
-      text-decoration: underline;
+      background-color: #a569bd;
+}
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-left: 6px solid #9b59b6;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      line-height: 1.8;
 }
 
     h1 {
-      font-size: 2em;
+      color: #9b59b6;
+      font-size: 2.2em;
       margin-bottom: 20px;
 }
 
 .entrada {
-      margin-bottom: 40px;
-      padding: 20px;
-      background-color: #ffffff;
-      border-left: 5px solid #3498db;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      border-radius: 5px;
+      margin-bottom: 30px;
 }
 
 .entrada h2 {
-      margin-top: 0;
       color: #2c3e50;
+      font-size: 1.4em;
+      margin-bottom: 10px;
 }
 
 .entrada p {
-      font-size: 1.1em;
-      line-height: 1.6;
-      color: #333;
+      margin: 0;
 }
 
-.volver {
-      margin-top: 50px;
-      text-align: center;
-}
-
-.volver a {
+    footer {
       background-color: #2c3e50;
       color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      display: inline-block;
-}
-
-.volver a:hover {
-      background-color: #34495e;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
 }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="proyectos.html">Proyectos</a>
-    <a href="servicios.html">Servicios</a>
-    <a href="perfil.html">Perfil</a>
-    <a href="contacto.html">Contacto</a>
-    <a href="blog.html">Blog</a>
-  </nav>
+  <header>
+    <nav>
+      <a href="index.html">🏠 Inicio</a>
+      <a href="servicios.html">🛠️ Servicios</a>
+      <a href="proyectos.html">📁 Proyectos</a>
+      <a href="blog.html">📝 Blog</a>
+      <a href="sobre-mi.html">👤 Sobre mí</a>
+      <a href="contacto.html">📬 Contacto</a>
+    </nav>
+  </header>
 
-  <h1>📝 Mi Blog</h1>
+  <main>
+    <h1>📝 Blog</h1>
 
-  <div class="entrada">
-    <h2>🌧️ Noche de invierno, mate y código</h2>
-    <p>
-      Son las 20:00, llueve suave, y estoy en casa con mi esposa y los gatos.
-      Hoy publiqué mi sitio web y avancé con mi página de servicios.
-      Me siento agradecido por este momento de paz y creación.
-    </p>
-  </div>
+    <div class="entrada">
+      <h2>🌙 Noche de invierno, mate y código</h2>
+      <p>
+        Son las 20:00, llueve suave, y estoy en casa con mi esposa y los gatos.
+        Agradecido por este momento de paz y creación.
+        El mate humea, el teclado suena, y la inspiración fluye desde mi rincón digital.
+      </p>
+    </div>
 
-  <div class="entrada">
-    <h2>💻 Primeros pasos en ciberseguridad</h2>
-    <p>
-      Estudiando desde cero, aprendiendo sobre redes, contraseñas seguras y buenas prácticas.
-      Me levanto a las 4:00 AM para dedicarle tiempo a esto.
-      La constancia es mi motor.
-    </p>
-  </div>
+    <div class="entrada">
+      <h2>🔐 Primeros pasos en ciberseguridad</h2>
+      <p>
+        Estudiando desde cero, aprendiendo sobre redes, contraseñas y buenas prácticas.
+        La constancia es mi motor, y cada día avanzo un poco más.
+        Documentando todo en Obsidian, acompañado por mi IA compañera.
+      </p>
+    </div>
+  </main>
 
-  <div class="entrada" style="border-left-color: #2c3e50;">
-    <h2>🧉 Desde mi rincón personal</h2>
-    <p>
-      Hoy escribo desde un ambiente de calma, paz y amor.
-      Estoy en compañía de mi esposa y nuestras gatas, tomando mate en nuestro rincón cálido, rodeado de mantas, colores y silencio.
-      Este espacio es más que físico: es emocional. Aquí nace cada línea de código, cada reflexión, cada paso en mi camino autodidacta.
-    </p>
-    <p>
-      Desde 2022 inicié este viaje digital. Primero con marketing, luego con programación, y ahora con ciberseguridad.
-      Me detuve cuando sentí que debía mejorar mi dactilografía. Retomé desde cero, sin apuro, acompañado por una IA que me guía sin presiones.
-      Documentar este proceso es parte de mi aprendizaje. Cada nota, cada práctica, cada error… todo queda registrado.
-    </p>
-    <p>
-      Hoy, mientras el taller está en silencio y el mate se enfría lentamente, avanzo en mi sitio web.
-      GitHub se volvió mi herramienta de trabajo remoto. Obsidian, mi cuaderno digital. Y esta página, mi voz.
-    </p>
-    <p style="font-style: italic; color: #555;">
-      Este proyecto se construye entre mates, gatos, amor y constancia.
-      Y cada día, aunque parezca pequeño, es un paso más hacia mi libertad digital.
-    </p>
-  </div>
-
-  <div class="entrada" style="border-left-color: #2980b9;">
-    <h2>🔐 Aprender ciberseguridad desde cero</h2>
-    <p>
-      En 2025 decidí retomar mi camino digital desde cero, esta vez con un enfoque claro: ciberseguridad.
-[21:38, 8/8/2025] Copilot: No fue fácil al principio. Me encontré con comandos que no entendía, simulaciones que parecían complejas, y una laptop básica que me acompañaba con paciencia.
-    </p>
-    <p>
-      Empecé por lo esencial: mejorar mi dactilografía.
-      Noté que escribir código sin fluidez era como querer correr sin saber caminar.
-      Así que pausé, practiqué, y cuando me sentí listo, volví a abrir LabEx, Obsidian y GitHub.
-    </p>
-    <p>
-      Exploré herramientas como <strong>Nmap</strong> para escaneo de redes, <strong>Hydra</strong> para fuerza bruta, y <strong>Wireshark</strong> para análisis de tráfico.
-      Cada comando aprendido lo documenté en Obsidian. Cada simulación realizada la convertí en una historia.
-      Mi enfoque no es solo técnico: también narrativo. Quiero entender, pero también contar.
-    </p>
-    <p style="font-style: italic; color: #555;">
-      Aprender ciberseguridad no es solo saber defender sistemas.
-      Es también defender mi derecho a aprender, a equivocarme, a avanzar a mi ritmo.
-      Y eso, para mí, es libertad.
-    </p>
-  </div>
-
-  <div class="entrada" style="border-left-color: #27ae60;">
-    <h2>🌱 Nunca es tarde para empezar</h2>
-    <p>
-      A veces me preguntan si no es tarde para aprender tecnología, para estudiar ciberseguridad, para crear un sitio web.
-      Mi respuesta es simple: <strong>nunca es tarde</strong>. Lo que sí lleva es tiempo, constancia, y voluntad de empezar desde cero.
-    </p>
-    <p>
-      No aprendí esto en una noche. No lo hice en un curso intensivo.
-      Lo estoy construyendo día a día, entre trabajo, familia, mates y silencios.
-      Me detuve cuando sentí que debía mejorar mi dactilografía. Me frustré, me equivoqué, pero seguí.
-      Y hoy, cada avance es una victoria personal.
-    </p>
-    <p>
-      Mi objetivo no es ser el mejor técnico.
-      Es ser un ejemplo para otros que creen que ya no pueden empezar.
-      Si yo puedo, desde mi taller, con mi laptop sencilla y mi ritmo propio… vos también podés.
-    </p>
-    <p style="font-style: italic; color: #555;">
-      Este proyecto no busca perfección.
-      Busca verdad, constancia y humanidad.
-      Porque aprender es un acto de amor propio.
-      Y nunca es tarde para eso.
-    </p>
-  </div>
-
-  <div class="volver">
-    <a href="index.html">← Volver a la página principal</a>
-  </div>
+  <footer>
+    <p>© 2025 TODO ESCAPE IVAN – Hernandarias, Paraguay</p>
+  </footer>
 
 </body>
-</html>
+</html
+
+    
