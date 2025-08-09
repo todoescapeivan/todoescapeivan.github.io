@@ -1,69 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo Escape Iván – Carlos Páez</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(to right, #fdfdfd, #eef2ff);
+      color: #2c3e50;
+}
 
-  
-<header style="
-  background: linear-gradient(to right, #8e44ad, #6c3483);
-  padding: 20px 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-">
-  <nav style="
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 18px;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-  ">
-    <a href="index.html" style="
+    header {
+      background: linear-gradient(to right, #8e44ad, #6c3483);
+      padding: 20px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+}
+
+    nav a {
       color: white;
       text-decoration: none;
       font-size: 1.1em;
       padding: 10px 16px;
       border-radius: 6px;
       transition: background-color 0.3s ease;
-    ">🏠 Inicio</a>
+}
 
-    <a href="servicios.html" style="
-      color: white;
-      text-decoration: none;
-      font-size: 1.1em;
-      padding: 10px 16px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    ">🛠️ Servicios</a>
+    nav a:hover {
+      background-color: #a569bd;
+}
 
-    <a href="proyectos.html" style="
-      color: white;
-      text-decoration: none;
-      font-size: 1.1em;
-      padding: 10px 16px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    ">📁 Proyectos</a>
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-left: 6px solid #3498db;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      line-height: 1.8;
+}
 
-    <a href="blog.html" style="
-      color: white;
-      text-decoration: none;
-      font-size: 1.1em;
-      padding: 10px 16px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    ">📝 Blog</a>
+    h1 {
+      color: #3498db;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+}
 
-    <a href="sobre-mi.html" style="
-      color: white;
-      text-decoration: none;
-      font-size: 1.1em;
-      padding: 10px 16px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    ">👤 Sobre mí</a>
+    p {
+      margin-bottom: 20px;
+}
 
-    <a href="contacto.html" style="
+.frase {
+      margin-top: 30px;
+      font-style: italic;
+      color: #555;
+}
+
+    footer {
+      background-color: #2c3e50;
       color: white;
-      text-decoration: none;
-      font-size: 1.1em;
-      padding: 10px 16px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    ">📬 Contacto</a>
-  </nav>
-</header>
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">🏠 Inicio</a>
+      <a href="servicios.html">🛠️ Servicios</a>
+      <a href="proyectos.html">📁 Proyectos</a>
+      <a href="blog.html">📝 Blog</a>
+      <a href="sobre-mi.html">👤 Sobre mí</a>
+      <a href="contacto.html">📬 Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>👋 Bienvenido a Todo Escape Iván</h1>
+
+    <p>
+      Soy <strong>Carlos Páez</strong>, hombre adulto mayor, autodidacta y apasionado por la tecnología.
+      Desde <em>Hernandarias, Paraguay</em>, construyo este sitio con HTML puro, documentando mi camino en <strong>ciberseguridad</strong>, <strong>marketing digital</strong> y vida cotidiana.
+      Cada línea de código nace desde mi rincón, entre mates, gatos y constancia.
+    </p>
+
+    <p>
+      Mi historia comenzó en el mundo de los sistemas de escape, donde trabajé por más de 25 años.
+      En 2022 decidí reinventarme: aprendí marketing digital, creé mi primera página web y me lancé a estudiar ciberseguridad desde cero.
+      Hoy, cada proyecto que comparto aquí es parte de ese viaje, acompañado por una inteligencia artificial que me ayuda a pensar, escribir y crear.
+    </p>
+
+    <p>
+      Este sitio es mi <strong>taller digital</strong>, mi diario de aprendizaje y mi forma de compartir lo que sé, lo que aprendo y lo que soy.
+      No pertenezco a ninguna empresa ni agrupación: soy libre, curioso y agradecido por cada paso que doy.
+      Aquí vas a encontrar <em>proyectos, reflexiones, herramientas</em> y momentos que forman parte de mi evolución personal.
+    </p>
+
+    <p class="frase">“Siempre hay algo nuevo por aprender, por compartir, por construir.”</p>
+  </main>
+
+  <footer>
+    <p>© 2025 TODO ESCAPE IVAN – Hernandarias, Paraguay</p>
+  </footer>
+
+</body>
+</html>
+
