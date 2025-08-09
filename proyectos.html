@@ -2,99 +2,122 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mis Proyectos – Todo Escape Iván</title>
+  <title>Proyectos – Todo Escape Iván</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #fdfdfd, #e8f0ff);
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(to right, #fdfdfd, #eef2ff);
       color: #2c3e50;
 }
 
     header {
-      background-color: #8e44ad;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      background: linear-gradient(to right, #8e44ad, #6c3483);
+      padding: 20px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-    h1 {
-      margin: 0;
-      font-size: 2em;
-      letter-spacing: 1px;
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+}
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1em;
+      padding: 10px 16px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+}
+
+    nav a:hover {
+      background-color: #a569bd;
 }
 
     main {
-      max-width: 800px;
-      margin: auto;
-      padding: 30px 20px;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-left: 6px solid #2980b9;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      line-height: 1.8;
 }
 
-    ul {
-      list-style: none;
-      padding: 0;
+    h1 {
+      color: #2980b9;
+      font-size: 2.2em;
+      margin-bottom: 20px;
 }
 
-    ul li {
-      background-color: #ffffff;
-      margin-bottom: 15px;
-      padding: 15px 20px;
-      border-left: 6px solid #3498db;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      font-size: 1.1em;
-      transition: transform 0.2s ease;
+.proyecto {
+      margin-bottom: 30px;
 }
 
-    ul li:hover {
-      transform: scale(1.02);
-      background-color: #f0f8ff;
+.proyecto h2 {
+      color: #2c3e50;
+      font-size: 1.4em;
+      margin-bottom: 10px;
 }
 
-.volver {
-      text-align: center;
-      margin: 40px 0;
+.proyecto p {
+      margin: 0;
 }
 
-.volver a {
-      background-color: #3498db;
+    footer {
+      background-color: #2c3e50;
       color: white;
-      padding: 14px 28px;
-      text-decoration: none;
-      border-radius: 10px;
-      font-size: 1.2em;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      display: inline-block;
-}
-
-.volver a:hover {
-      background-color: #2980b9;
-      transform: scale(1.05);
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
 }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>🚀 Mis Proyectos</h1>
+    <nav>
+      <a href="index.html">🏠 Inicio</a>
+      <a href="servicios.html">🛠️ Servicios</a>
+      <a href="proyectos.html">📁 Proyectos</a>
+      <a href="blog.html">📝 Blog</a>
+      <a href="sobre-mi.html">👤 Sobre mí</a>
+      <a href="contacto.html">📬 Contacto</a>
+    </nav>
   </header>
 
   <main>
-    <ul>
-      <li>🔐 <strong>Proyecto 001 – Ciberseguridad</strong><br>Explorando fundamentos, herramientas y buenas prácticas.</li>
-      <li>🧪 <strong>LabEx – Desafío Hydra</strong><br>Resolviendo retos técnicos en entornos virtuales.</li>
-      <li>📊 <strong>Guía básica de Nmap</strong><br>Escaneo de redes y análisis de puertos paso a paso.</li>
-      <li>🗂️ <strong>Documentación en Obsidian</strong><br>Organizando conocimiento con enlaces y estructura digital.</li>
-    </ul>
+    <h1>📁 Proyectos</h1>
 
-    <div class="volver">
-      <a href="index.html">← Volver a la página principal</a>
+    <div class="proyecto">
+      <h2>🔐 Proyecto 001 – Ciberseguridad</h2>
+      <p>Explorando fundamentos, herramientas y buenas prácticas para proteger sistemas y redes.</p>
+    </div>
+
+    <div class="proyecto">
+      <h2>🧪 LabEx – Desafío Hydra</h2>
+      <p>Resolviendo retos técnicos en entornos virtuales, aplicando lógica y herramientas de análisis.</p>
+    </div>
+
+    <div class="proyecto">
+      <h2>📊 Guía básica de Nmap</h2>
+      <p>Escaneo de redes y análisis de puertos paso a paso, documentado para principiantes.</p>
+    </div>
+
+    <div class="proyecto">
+      <h2>🗂️ Documentación en Obsidian</h2>
+      <p>Organizando conocimiento digital con enlaces, etiquetas y estructura personalizada.</p>
     </div>
   </main>
+
+  <footer>
+    <p>© 2025 TODO ESCAPE IVAN – Hernandarias, Paraguay</p>
+  </footer>
 
 </body>
 </html>
