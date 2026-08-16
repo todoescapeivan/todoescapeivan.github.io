@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>💳 Pasarela de Pago – Todo Escape Iván</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(to right, #fdfdfd, #eef2ff);
+      color: #2c3e50;
+    }
+
+    header {
+      background: linear-gradient(to right, #8e44ad, #6c3483);
+      padding: 20px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1em;
+      padding: 10px 16px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #a569bd;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-left: 6px solid #27ae60;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      line-height: 1.8;
+    }
+
+    h1 {
+      color: #27ae60;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+    }
+
+    .pago {
+      margin-bottom: 30px;
+    }
+
+    .pago h2 {
+      color: #2c3e50;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+    }
+
+    .pago p {
+      margin: 0;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">🏠 Inicio</a>
+      <a href="servicios.html">🛠️ Servicios</a>
+      <a href="proyectos.html">📁 Proyectos</a>
+      <a href="blog.html">📝 Blog</a>
+      <a href="sobre-mi.html">👤 Sobre mí</a>
+      <a href="contacto.html">📬 Contacto</a>
+      <a href="pagos.html">💳 Pagos</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>💳 Pasarela de Pago</h1>
+
+    <div class="pago">
+      <h2>🏦 Ueno Bank S.A.</h2>
+      <p>Titular: <strong>JUAN CARLOS PÁEZ</strong></p>
+      <p>Cuenta bancaria: <strong>619916820</strong></p>
+      <p>Tarjeta: <strong>5585 4900 3210 8735</strong> (Vencimiento 07/30)</p>
+    </div>
+
+    <div class="pago">
+      <h2>🏦 Eko Banco Familiar</h2>
+      <p>Titular: <strong>JUAN CARLOS PÁEZ</strong></p>
+      <p>Alias / Teléfono: <strong>+595 983 572028</strong></p>
+      <p>Cédula: <strong>616174</strong></p>
+      <p>Cuenta Banco Familiar: <strong>81-5517554</strong></p>
+      <p>Cuenta otros bancos: <strong>815517554</strong></p>
+    </div>
+
+    <div class="pago">
+      <h2>📲 Binance Pay</h2>
+      <p>Escaneá el QR oficial desde tu aplicación Binance para enviar pagos en <strong>USDT, BTC o ETH</strong>.</p>
+      <img src="binance-qr.png" alt="QR Binance Pay" style="max-width:250px;">
+    </div>
+
+    <div class="pago">
+      <h2>📱 WhatsApp</h2>
+      <p>
+        <a href="https://wa.me/595983572028" target="_blank">+595 983 572028</a><br>
+        <a href="https://wa.me/595993441641" target="_blank">+595 993 441641</a>
+      </p>
+    </div>
+
+    <div class="pago">
+      <h2>🌐 Redes sociales</h2>
+      <p>
+        🎵 <a href="https://www.tiktok.com/@todoescapeivam" target="_blank">TikTok – @todoescapeivam</a><br>
+        📸 <a href="https://www.instagram.com/todoescapeivan/" target="_blank">Instagram – @todoescapeivan</a><br>
+        🐦 <a href="https://x.com/paez97_paez" target="_blank">X (Twitter) – @paez97_paez</a><br>
+        💬 <a href="https://www.facebook.com/profile.php?id=100063643912937" target="_blank">Facebook – Todo Escape Iván</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 TODO ESCAPE IVAN – Hernandarias, Paraguay</p>
+  </footer>
+
+</body>
+</html>
