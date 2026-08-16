@@ -57,10 +57,15 @@
 
     .pago {
       margin-bottom: 30px;
+      padding: 20px;
+      border: 2px solid #9b59b6;
+      border-radius: 10px;
+      background: linear-gradient(to right, #fefefe, #f3e5f5);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
 
     .pago h2 {
-      color: #2c3e50;
+      color: #8e44ad;
       font-size: 1.4em;
       margin-bottom: 10px;
     }
@@ -142,3 +147,4 @@
 
 </body>
 </html>
+
