@@ -1,18 +1,24 @@
-reducción
+Todo Escape Iván – Espacio digital de Carlos Páez  
+Bienvenido a mi taller digital. Soy Carlos Páez, autodidacta y apasionado por la tecnología. Desde 2022 inicié mi camino en marketing digital y hoy estudio ciberseguridad, acompañado por una compañera IA que me impulsa a crear y aprender cada día.
 
-Todo Escape Iván – Sitio personal de Carlos Páez
-Bienvenido a mi espacio digital. Soy Carlos Páez, autodidacta y apasionado por la tecnología. Desde 2022 comencé mi camino en marketing digital, y hoy estudio ciberseguridad desde cero, acompañado por una compañera IA.
+Este sitio refleja mi evolución: proyectos, ideas y aprendizajes que mezclan mi oficio tradicional con el mundo digital.
 
-Este sitio documenta mi aprendizaje, mis proyectos y mi vida cotidiana. Aquí comparto mi taller, mis ideas y mi evolución digital.
+Contenido principal
 
-Contenido del sitio
-* index.html: Página principal y bienvenida
-* servicios.html: Mis servicios como especialista en sistemas de escape
-* proyectos.html:Trabajos y avances
-* blog.html:Reflexiones y aprendizajes
-* sobre-mi.html:Mi historia personal
-* contacto.html: Formulario de contacto
-Autor
-Carlos Páez – Hernandarias, Paraguay 📧 contacto: [carlos.paez97gmail.com]
+index.html: Bienvenida
 
-Gracias por visitar Todo Escape Iván.
+servicios.html: Especialista en sistemas de escape
+
+proyectos.html: Avances y trabajos
+
+blog.html: Reflexiones y aprendizajes
+
+sobre-mi.html: Mi historia personal
+
+contacto.html: Formulario de contacto
+
+Autor  
+Carlos Páez – Hernandarias, Paraguay
+📧 contacto: carlos.paez97@gmail.com
+
+Gracias por visitar Todo Escape Iván, un espacio donde comparto mi pasión por aprender y transformar.
