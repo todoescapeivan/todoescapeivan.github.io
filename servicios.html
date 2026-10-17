@@ -1,159 +1,122 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Servicios – Todo Escape Iván</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: linear-gradient(to right, #fdfdfd, #eef2ff);
-      color: #2c3e50;
-}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Servicios — Todo Escape Iván</title>
+<meta name="description" content="El taller de escape y los servicios digitales">
+<meta name="author" content="Carlos Páez">
+<style>
+  :root{ --verde:#0f7b3f; --verde2:#0b5c2e; --tinta:#12211a; --gris:#5b6b62; --fondo:#f6f8f6; }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--fondo);color:var(--tinta);line-height:1.55}
+  nav{background:#0b3d21;padding:10px 12px;text-align:center;position:sticky;top:0;z-index:5}
+  nav a{color:#e8f5ec;text-decoration:none;font-size:.86rem;margin:0 8px;display:inline-block;padding:3px 0}
+  nav a.activo{color:#fff;border-bottom:2px solid #6ee7a0;font-weight:600}
+  header{background:linear-gradient(160deg,var(--verde) 0%,var(--verde2) 100%);color:#fff;padding:32px 20px 26px;text-align:center}
+  header h1{margin:0 0 6px;font-size:1.75rem;letter-spacing:.3px}
+  header p{margin:0;opacity:.95;font-size:.98rem}
+  .sello{display:inline-block;margin-top:12px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:5px 12px;border-radius:999px;font-size:.83rem}
+  main{max-width:760px;margin:0 auto;padding:0 16px 30px}
+  section{background:#fff;border-radius:14px;padding:18px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+  h2{font-size:1.1rem;margin:0 0 12px;color:var(--verde2)}
+  ul{margin:0;padding-left:20px} li{margin:6px 0}
+  .botones{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  a.boton{display:block;flex:1 1 190px;text-align:center;text-decoration:none;padding:14px 16px;border-radius:10px;font-weight:600;background:var(--verde);color:#fff}
+  a.boton.alt{background:#fff;color:var(--verde2);border:2px solid var(--verde)}
+  a{color:var(--verde2)}
+  .dato{display:flex;gap:10px;margin:8px 0;align-items:flex-start}
+  .dato b{min-width:118px;color:var(--gris);font-weight:600}
+  .redes{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .redes a{flex:1 1 130px;text-align:center;text-decoration:none;padding:11px;border-radius:10px;border:2px solid var(--verde);color:var(--verde2);font-weight:600}
+  footer{text-align:center;color:var(--gris);font-size:.84rem;padding:16px 16px 30px}
+  footer a{color:var(--gris);margin:0 6px}
 
-    header {
-      background: linear-gradient(to right, #8e44ad, #6c3483);
-      padding: 20px 0;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 18px;
-}
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.1em;
-      padding: 10px 16px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-}
-
-    nav a:hover {
-      background-color: #a569bd;
-}
-
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
-      background-color: #fff;
-      border-left: 6px solid #27ae60;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      line-height: 1.8;
-}
-
-    h1 {
-      color: #27ae60;
-      font-size: 2.2em;
-      margin-bottom: 20px;
-}
-
-.servicio {
-      margin-bottom: 30px;
-}
-
-.servicio h2 {
-      color: #2c3e50;
-      font-size: 1.4em;
-      margin-bottom: 10px;
-}
-
-.servicio p {
-      margin: 0;
-}
-
-    footer {
-      background-color: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 40px;
-}
-  </style>
+  .aviso{background:#fffbe8;border-left:4px solid #e2b93b;padding:10px 12px;border-radius:6px;font-size:.9rem;margin:10px 0 0}</style>
 </head>
 <body>
 
-  <header>
-    <nav>
-  <a href="index.html">🏠 Inicio</a>
-  <a href="servicios.html">🛠️ Servicios</a>
-  <a href="proyectos.html">📁 Proyectos</a>
-  <a href="blog.html">📝 Blog</a>
-  <a href="sobre-mi.html">👤 Sobre mí</a>
-  <a href="contacto.html">📬 Contacto</a>
-  <a href="pagos.html">💳 Pagos</a>
-  <a href="privacy.html">🔒 Privacidad</a>  
-   </nav>
-  </header>
-  
+<nav>
+  <a href="index.html">Inicio</a>
+  <a class="activo" href="servicios.html">Servicios</a>
+  <a href="proyectos.html">Proyectos</a>
+  <a href="blog.html">Blog</a>
+  <a href="sobre-mi.html">Sobre mí</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="pagos.html">Pagos</a>
+  <a href="privacy.html">Privacidad</a>
+</nav>
+
+<header>
+  <h1>Servicios</h1>
+  <p>El taller de escape y los servicios digitales</p>
+</header>
+
 <main>
-  <h1>🛠️ Servicios</h1>
 
-  <div class="servicio">
-    <h2>🔧 Asesoría en sistemas de escape</h2>
-    <p>
-      Más de 26 años de experiencia en soluciones artesanales para vehículos.
-      Brindo orientación técnica, recomendaciones y consejos prácticos para mejorar el rendimiento y la durabilidad.
-    </p>
-  </div>
+  <section>
+    <div class="aviso">Dos cosas distintas, la misma persona: el <b>taller de escape</b> de toda la vida, y los <b>servicios digitales</b> que aprendí después.</div>
+  </section>
 
-  <div class="servicio">
-    <h2>🌐 Creación de páginas web básicas</h2>
-    <p>
-      Diseño y desarrollo de sitios web simples en HTML puro, ideales para emprendimientos personales o pequeños negocios.
-      Enfocado en claridad, funcionalidad y estilo humano.
-    </p>
-  </div>
 
-  <div class="servicio">
-    <h2>🛒 Creación de tienda digital desde cero</h2>
-    <p>
-      Desarrollo completo de tiendas online, integrando pasarelas de pago y automatización para vender productos físicos y digitales.
-    </p>
-  </div>
+  <section>
+    <h2>Asesoría en sistemas de escape</h2>
+    <p>Más de 26 años de experiencia en soluciones artesanales para vehículos. Brindo orientación técnica, recomendaciones y consejos prácticos para mejorar el rendimiento y la durabilidad.</p>
+  </section>
+  <section>
+    <h2>Creación de páginas web básicas</h2>
+    <p>Diseño y desarrollo de sitios web simples en HTML puro, ideales para emprendimientos personales o pequeños negocios. Enfocado en claridad, funcionalidad y estilo humano.</p>
+  </section>
+  <section>
+    <h2>Creación de tienda digital desde cero</h2>
+    <p>Desarrollo completo de tiendas online, integrando pasarelas de pago y automatización para vender productos físicos y digitales.</p>
+  </section>
+  <section>
+    <h2>Contenido y campañas publicitarias</h2>
+    <p>Diseño de publicaciones, gestión de redes sociales y campañas digitales para aumentar visibilidad y ventas.</p>
+  </section>
+  <section>
+    <h2>Introducción a la ciberseguridad</h2>
+    <p>Acompañamiento para quienes quieren comenzar desde cero en el mundo de la seguridad digital. Compartiendo recursos, herramientas y buenas prácticas que yo mismo estoy aprendiendo.</p>
+  </section>
+  <section>
+    <h2>Documentación digital en Obsidian</h2>
+    <p>Ayuda para organizar ideas, proyectos y aprendizajes usando Obsidian. Ideal para quienes quieren construir su propio sistema de conocimiento personal.</p>
+  </section>
+  <section>
+    <h2>Creación de pasarela de pago multicanal</h2>
+    <p>Implementación de un checkout unificado, con los medios de pago que el negocio realmente use. Hoy nuestro medio habilitado es <b>Bitcoin (BTC)</b>; el resto se coordina por WhatsApp. Automatización con n8n para confirmaciones y registro de pedidos.</p>
+  </section>
 
-  <div class="servicio">
-    <h2>📢 Contenido y campañas publicitarias</h2>
-    <p>
-      Diseño de publicaciones, gestión de redes sociales y campañas digitales para aumentar visibilidad y ventas.
-    </p>
-  </div>
+  <section>
+    <h2>Lo que ya está funcionando</h2>
+    <p>No es una lista de lo que sé hacer: es lo que hoy está corrido y andando.</p>
+    <ul>
+      <li><b>Una tienda que atiende sola.</b> El cliente escribe, recibe el catálogo desde una planilla
+      de Google, pide, y el pedido queda registrado con fecha y estado. Al dueño le llega el aviso en
+      el momento.</li>
+      <li><b>Un informe que llega todos los días.</b> Se arma solo a las 9 de la mañana, con datos de
+      mercado, y llega al celular sin que nadie lo pida.</li>
+      <li><b>Un asistente que investiga y verifica.</b> Busca, contrasta la fuente y descarta lo que no
+      puede comprobar. Habla por voz y por escrito.</li>
+      <li><b>La web que estás viendo.</b> Armada a mano, sin plantillas pagas.</li>
+    </ul>
+  </section>
 
-  <div class="servicio">
-    <h2>🔐 Introducción a la ciberseguridad</h2>
-    <p>
-      Acompañamiento para quienes quieren comenzar desde cero en el mundo de la seguridad digital.
-      Compartiendo recursos, herramientas y buenas prácticas que yo mismo estoy aprendiendo.
-    </p>
-  </div>
+  <section>
+    <h2>¿Hablamos?</h2>
+    <p>Escribime y te contesto yo, sin intermediarios.</p>
+    <div class="botones">
+      <a class="boton" href="https://wa.me/595983572028">Escribir por WhatsApp</a>
+      <a class="boton alt" href="contacto.html">Ver todos los contactos</a>
+    </div>
+  </section>
 
-  <div class="servicio">
-    <h2>📚 Documentación digital en Obsidian</h2>
-    <p>
-      Ayuda para organizar ideas, proyectos y aprendizajes usando Obsidian.
-      Ideal para quienes quieren construir su propio sistema de conocimiento personal.
-    </p>
-  </div>
-
-  <div class="servicio">
-    <h2>💳 Creación de pasarela de pago multicanal</h2>
-    <p>
-      Implementación de un checkout unificado con múltiples métodos de pago: Ueno Bank, Eko Banco Familiar (SIPAP), Binance Pay (USDT/BTC/ETH) y Bancard/Pagopar para tarjetas internacionales.
-      Automatización con n8n para confirmaciones en WhatsApp y registro en CRM.
-    </p>
-  </div>
 </main>
 
 <footer>
-  <p>© 2026 TODO ESCAPE IVAN – Hernandarias, Paraguay</p>
+  Todo Escape Iván · Hernandarias, Alto Paraná, Paraguay<br>
+  Taller en actividad desde el año 2000 · <a href="privacy.html">Privacidad</a>
 </footer>
 
 </body>
