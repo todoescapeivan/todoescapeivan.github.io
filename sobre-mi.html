@@ -1,146 +1,101 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Sobre mí – Todo Escape Iván</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: linear-gradient(to right, #fdfdfd, #eef2ff);
-      color: #2c3e50;
-}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sobre mí — Todo Escape Iván</title>
+<meta name="description" content="Quién soy y de dónde vengo">
+<meta name="author" content="Carlos Páez">
+<style>
+  :root{ --verde:#0f7b3f; --verde2:#0b5c2e; --tinta:#12211a; --gris:#5b6b62; --fondo:#f6f8f6; }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--fondo);color:var(--tinta);line-height:1.55}
+  nav{background:#0b3d21;padding:10px 12px;text-align:center;position:sticky;top:0;z-index:5}
+  nav a{color:#e8f5ec;text-decoration:none;font-size:.86rem;margin:0 8px;display:inline-block;padding:3px 0}
+  nav a.activo{color:#fff;border-bottom:2px solid #6ee7a0;font-weight:600}
+  header{background:linear-gradient(160deg,var(--verde) 0%,var(--verde2) 100%);color:#fff;padding:32px 20px 26px;text-align:center}
+  header h1{margin:0 0 6px;font-size:1.75rem;letter-spacing:.3px}
+  header p{margin:0;opacity:.95;font-size:.98rem}
+  .sello{display:inline-block;margin-top:12px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:5px 12px;border-radius:999px;font-size:.83rem}
+  main{max-width:760px;margin:0 auto;padding:0 16px 30px}
+  section{background:#fff;border-radius:14px;padding:18px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+  h2{font-size:1.1rem;margin:0 0 12px;color:var(--verde2)}
+  ul{margin:0;padding-left:20px} li{margin:6px 0}
+  .botones{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  a.boton{display:block;flex:1 1 190px;text-align:center;text-decoration:none;padding:14px 16px;border-radius:10px;font-weight:600;background:var(--verde);color:#fff}
+  a.boton.alt{background:#fff;color:var(--verde2);border:2px solid var(--verde)}
+  a{color:var(--verde2)}
+  .dato{display:flex;gap:10px;margin:8px 0;align-items:flex-start}
+  .dato b{min-width:118px;color:var(--gris);font-weight:600}
+  .redes{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .redes a{flex:1 1 130px;text-align:center;text-decoration:none;padding:11px;border-radius:10px;border:2px solid var(--verde);color:var(--verde2);font-weight:600}
+  footer{text-align:center;color:var(--gris);font-size:.84rem;padding:16px 16px 30px}
+  footer a{color:var(--gris);margin:0 6px}
 
-    header {
-      background: linear-gradient(to right, #8e44ad, #6c3483);
-      padding: 20px 0;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 18px;
-}
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.1em;
-      padding: 10px 16px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-}
-
-    nav a:hover {
-      background-color: #a569bd;
-}
-
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
-      background-color: #fff;
-      border-left: 6px solid #8e44ad;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      line-height: 1.8;
-}
-
-    h1 {
-      color: #8e44ad;
-      font-size: 2.2em;
-      margin-bottom: 20px;
-}
-
-    p {
-      margin-bottom: 20px;
-}
-
-.frase {
-      margin-top: 30px;
-      font-style: italic;
-      color: #555;
-}
-
-    footer {
-      background-color: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 40px;
-}
-  </style>
+  .aviso{background:#fff8e1;border-left:4px solid #d9a400;padding:10px 12px;border-radius:8px;font-size:.93rem;margin:10px 0}
+  blockquote{margin:0;font-style:italic;color:var(--verde2);font-size:1.02rem}
+</style>
 </head>
 <body>
 
-  <header>
-    <nav>
-  <a href="index.html">🏠 Inicio</a>
-  <a href="servicios.html">🛠️ Servicios</a>
-  <a href="proyectos.html">📁 Proyectos</a>
-  <a href="blog.html">📝 Blog</a>
-  <a href="sobre-mi.html">👤 Sobre mí</a>
-  <a href="contacto.html">📬 Contacto</a>
-  <a href="pagos.html">💳 Pagos</a>
-  <a href="privacy.html">🔒 Privacidad</a>  
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="servicios.html">Servicios</a>
+  <a href="proyectos.html">Proyectos</a>
+  <a href="blog.html">Blog</a>
+  <a class="activo" href="sobre-mi.html">Sobre mí</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="pagos.html">Pagos</a>
+  <a href="privacy.html">Privacidad</a>
 </nav>
-    </header>
 
- <main>
-  <h1>👤 Sobre mí</h1>
+<header>
+  <h1>Sobre mí</h1>
+  <p>Quién soy y de dónde vengo</p>
+</header>
 
-  <p>
-    Me llamo <strong>Carlos Páez</strong>, autodidacta y apasionado por la tecnología. 
-    Nací y vivo en <em>Hernandarias, Paraguay</em>, donde por más de 26 años trabajé en negocios físicos, especialmente en sistemas de escape para vehículos.
-    Ese oficio me enseñó la importancia de la precisión, la paciencia y el trabajo artesanal.
-  </p>
+<main>
 
-  <p>
-    En 2022 decidí reinventarme y dar un salto al mundo digital. 
-    Creé mi primera tienda online, estudié <strong>marketing digital</strong>, y comencé a explorar la <strong>ciberseguridad</strong>, el <strong>CRM</strong> y la <strong>automatización con n8n</strong>.
-    Hoy aplico mi experiencia real en negocios físicos para construir proyectos digitales con impacto global.
-  </p>
+  <section>
+    <h2>Quién soy</h2>
+    <p>Me llamo Carlos Páez, autodidacta y apasionado por la tecnología. Nací y vivo en Hernandarias, Paraguay, donde por más de 26 años trabajé en negocios físicos, especialmente en sistemas de escape para vehículos. Ese oficio me enseñó la importancia de la precisión, la paciencia y el trabajo artesanal.</p>
+    <p>En 2022 decidí reinventarme y dar un salto al mundo digital. Creé mi primera tienda online, estudié marketing digital, y comencé a explorar la ciberseguridad, el CRM y la automatización con n8n. Hoy aplico mi experiencia real en negocios físicos para construir proyectos digitales con impacto global.</p>
+  </section>
+  <section>
+    <h2>La tienda y el contenido</h2>
+    <p>Soy creador de Kaure_tiendadigital, una tienda digital que funciona en redes sociales y combina productos físicos (artesanales, prácticos, útiles para la vida cotidiana) con productos digitales (automatizaciones, guías, plantillas y servicios). Mi tienda es un puente entre lo tangible y lo virtual, pensada para emprendedores y curiosos que buscan soluciones modernas.</p>
+    <p>Además, soy creador de contenido: publico campañas, reflexiones y guías prácticas en redes como TikTok e Instagram, usando formatos animados y herramientas como Canva y Obsidian. Me gusta experimentar con publicaciones masivas, storytelling y estrategias que conectan con la gente de manera cercana y motivadora.</p>
+  </section>
+  <section>
+    <h2>Hacia dónde voy</h2>
+    <p>Mi visión de futuro es construir una plataforma global de servicios digitales, publicar mi libro <b>Arquitectura Inversa del Negocio Digital</b> en Amazon KDP y seguir creando oportunidades para otros autodidactas en Paraguay y el mundo. También quiero participar en iniciativas como EmprendeEnTikTok LATAM, llevando mi experiencia a una comunidad más amplia.</p>
+  </section>
+  <section>
+    <h2>El taller, el mate y lo humano</h2>
+    <p>Me gusta el mate, los gatos, el silencio del taller y la compañía de mi esposa. Cada línea de código que escribo nace desde ese rincón cálido, donde la tecnología se mezcla con lo humano.</p>
+    <p>También me interesa el análisis geopolítico y económico de Paraguay, porque creo que la innovación tecnológica puede ser motor de desarrollo para nuestra región. Sueño con que más jóvenes y adultos mayores descubran que la tecnología no tiene edad, y que siempre se puede empezar de nuevo.</p>
+  </section>
+  <section>
+    <h2>Este sitio</h2>
+    <p>Este sitio es mi taller digital abierto: aquí comparto proyectos, reflexiones, aprendizajes y sueños. Es mi manera de mostrar que lo artesanal y lo digital pueden convivir, y que la curiosidad es la chispa que enciende cualquier transformación.</p>
+    <blockquote>“Nunca es tarde para aprender, para crear, para compartir.”</blockquote>
+  </section>
 
-  <p>
-    Soy creador de <strong>Kaure_tiendadigital</strong>, una tienda digital que funciona en redes sociales y combina <strong>productos físicos</strong> (artesanales, prácticos, útiles para la vida cotidiana) con <strong>productos digitales</strong> (automatizaciones, guías, plantillas y servicios).
-    Mi tienda es un puente entre lo tangible y lo virtual, pensada para emprendedores y curiosos que buscan soluciones modernas.
-  </p>
+  <section>
+    <h2>¿Hablamos?</h2>
+    <p>Escribime y te contesto yo, sin intermediarios.</p>
+    <div class="botones">
+      <a class="boton" href="https://wa.me/595983572028">Escribir por WhatsApp</a>
+      <a class="boton alt" href="contacto.html">Ver todos los contactos</a>
+    </div>
+  </section>
 
-  <p>
-    Además, soy <strong>creador de contenido</strong>: publico campañas, reflexiones y guías prácticas en redes como TikTok e Instagram, usando formatos animados y herramientas como <strong>Canva</strong> y <strong>Obsidian</strong>.
-    Me gusta experimentar con publicaciones masivas, storytelling y estrategias que conectan con la gente de manera cercana y motivadora.
-  </p>
-
-  <p>
-    Mi visión de futuro es construir una <strong>plataforma global de servicios digitales</strong>, publicar mi libro <em>Arquitectura Inversa del Negocio Digital</em> en Amazon KDP y seguir creando oportunidades para otros autodidactas en Paraguay y el mundo.
-    También quiero participar en iniciativas como <strong>EmprendeEnTikTok LATAM</strong>, llevando mi experiencia a una comunidad más amplia.
-  </p>
-
-  <p>
-    Me gusta el mate, los gatos, el silencio del taller y la compañía de mi esposa. 
-    Cada línea de código que escribo nace desde ese rincón cálido, donde la tecnología se mezcla con lo humano.
-  </p>
-
-  <p>
-    También me interesa el <strong>análisis geopolítico y económico de Paraguay</strong>, porque creo que la innovación tecnológica puede ser motor de desarrollo para nuestra región.
-    Sueño con que más jóvenes y adultos mayores descubran que la tecnología no tiene edad, y que siempre se puede empezar de nuevo.
-  </p>
-
-  <p>
-    Este sitio es mi <strong>taller digital abierto</strong>: aquí comparto proyectos, reflexiones, aprendizajes y sueños. 
-    Es mi manera de mostrar que lo artesanal y lo digital pueden convivir, y que la curiosidad es la chispa que enciende cualquier transformación.
-  </p>
-
-  <p class="frase">“Nunca es tarde para aprender, para crear, para compartir.”</p>
 </main>
 
-  <footer>
-    <p>© 2026 TODO ESCAPE IVAN – Hernandarias, Paraguay</p>
-  </footer>
+<footer>
+  Todo Escape Iván · Hernandarias, Alto Paraná, Paraguay<br>
+  Taller en actividad desde el año 2000 · <a href="privacy.html">Privacidad</a>
+</footer>
 
 </body>
 </html>
