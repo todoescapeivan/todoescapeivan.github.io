@@ -1,24 +1,29 @@
-Todo Escape Iván – Espacio digital de Carlos Páez  
-Bienvenido a mi taller digital. Soy Carlos Páez, autodidacta y apasionado por la tecnología. Desde 2022 inicié mi camino en marketing digital y hoy estudio ciberseguridad, acompañado por una compañera IA que me impulsa a crear y aprender cada día.
+# Sitio oficial — Todo Escape Iván
 
-Este sitio refleja mi evolución: proyectos, ideas y aprendizajes que mezclan mi oficio tradicional con el mundo digital.
+Web de **Todo Escape Iván** (Hernandarias, Alto Paraná, Paraguay): taller de sistemas de escape
+desde el año 2000, y servicios digitales.
 
-Contenido principal
+- **Web:** https://todoescapeivan.com
+- **Página de pagos:** https://todoescapeivan.com/pagos.html
+- **WhatsApp:** +595 983 572 028
 
-index.html: Bienvenida
+## Qué hay acá
 
-servicios.html: Especialista en sistemas de escape
+Sitio estático (HTML y CSS, sin frameworks ni plantillas pagas). Se publica con GitHub Pages y el
+dominio se administra en Cloudflare.
 
-proyectos.html: Avances y trabajos
+| Archivo | Qué es |
+|---|---|
+| `index.html` | Portada: qué hacemos, dónde estamos, contacto |
+| `pagos.html` | Pago en BTC (dirección verificada) y confirmación por WhatsApp |
+| `servicios.html` | Taller y servicios digitales |
+| `proyectos.html` · `blog.html` | Trabajos y notas |
+| `sobre-mi.html` · `contacto.html` · `privacy.html` | Quién soy, contacto y privacidad |
 
-blog.html: Reflexiones y aprendizajes
+## Cómo se edita
 
-sobre-mi.html: Mi historia personal
+1. Cambiar el archivo HTML correspondiente.
+2. Subir el cambio (commit) a la rama `main`.
+3. GitHub Pages publica en aproximadamente un minuto.
 
-contacto.html: Formulario de contacto
-
-Autor  
-Carlos Páez – Hernandarias, Paraguay
-📧 contacto: carlos.paez97@gmail.com
-
-Gracias por visitar Todo Escape Iván, un espacio donde comparto mi pasión por aprender y transformar.
+**Regla:** antes de publicar, verificar el cambio con la página abierta. Nada se sube "a ver qué sale".
