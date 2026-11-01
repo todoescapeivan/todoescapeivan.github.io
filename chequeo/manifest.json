@@ -1,0 +1,26 @@
+{
+  "name": "Chequeo de seguridad — Cuentas Seguras",
+  "short_name": "Chequeo",
+  "description": "Diez preguntas para saber si su negocio está expuesto a un robo de cuentas.",
+  "start_url": "/chequeo/",
+  "scope": "/chequeo/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b3d2e",
+  "theme_color": "#0b3d2e",
+  "lang": "es-PY",
+  "icons": [
+    {
+      "src": "/chequeo/icono-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/chequeo/icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
