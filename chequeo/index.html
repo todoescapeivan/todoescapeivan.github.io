@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chequeo de 10 minutos — Cuentas Seguras · Kaure</title>
 <meta name="description" content="Diez preguntas para saber si su negocio está expuesto a un robo de cuentas. Sin dar datos, sin registrarse. Kaure, Hernandarias.">
+<link rel="manifest" href="/chequeo/manifest.json">
+<meta name="theme-color" content="#0b3d2e">
+<link rel="apple-touch-icon" href="/chequeo/icono-192.png">
+<link rel="icon" href="/chequeo/icono-192.png">
 <link rel="stylesheet" href="/estilos.css">
 <style>
 .chequeo{max-width:680px;margin:0 auto}
@@ -153,6 +157,11 @@
     r.scrollIntoView({behavior:'smooth', block:'start'});
   }
 })();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function(){ navigator.serviceWorker.register('/chequeo/sw.js').catch(function(){}); });
+}
 </script>
 </body>
 </html>
