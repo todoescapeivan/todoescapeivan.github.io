@@ -10,6 +10,7 @@
 .chequeo{max-width:680px;margin:0 auto}
 .chequeo .pregunta{background:#0e1620;border:1px solid #1d2b38;border-radius:10px;padding:18px 18px 14px;margin:14px 0}
 .chequeo .pregunta p{margin:0 0 14px;font-size:1.02rem;line-height:1.5;color:#eaf3ee}
+.chequeo .ayuda{margin:-6px 0 12px;font-size:.86rem;color:#9fb3a8;line-height:1.45}
 .chequeo .opciones{display:flex;gap:8px}
 .chequeo .opciones button{flex:1;padding:14px 8px;font-size:.95rem;font-weight:600;border-radius:8px;cursor:pointer;
   background:transparent;border:2px solid #2a3b4a;color:#cfe0d7;transition:.15s}
@@ -51,34 +52,37 @@
     Al final ve su resultado y decide si quiere hablar.</p>
 
     <div id="preguntas">
-      <div class="pregunta" data-i="1"><p><span class="num">1</span> ¿La verificación en dos pasos está activa en el WhatsApp del negocio?</p>
+      <div class="pregunta" data-i="1"><p><span class="num">1</span> ¿El WhatsApp con el que atiende a sus clientes tiene la verificación en dos pasos activada?</p>
+        <p class="ayuda">Es el código de seis dígitos que WhatsApp le pide si reinstala la app o entra desde otro teléfono.</p>
         <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
 
-      <div class="pregunta" data-i="2"><p><span class="num">2</span> ¿Sabe cuántos dispositivos tienen acceso a ese WhatsApp ahora mismo?</p>
+      <div class="pregunta" data-i="2"><p><span class="num">2</span> ¿Sabe cuántos teléfonos o computadoras tienen abierta la sesión de ese WhatsApp ahora mismo?</p>
+        <p class="ayuda">Se ve en WhatsApp: Ajustes → Dispositivos vinculados.</p>
         <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
 
-      <div class="pregunta" data-i="3"><p><span class="num">3</span> ¿El correo de recuperación de sus cuentas es uno que usa hoy?</p>
+      <div class="pregunta" data-i="3"><p><span class="num">3</span> ¿El correo con el que recupera sus contraseñas es uno que usted revisa hoy?</p>
+        <p class="ayuda">Es el correo de respaldo: si es uno viejo que ya no abre, nadie puede avisarle cuando le cambian la clave.</p>
         <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
 
-      <div class="pregunta" data-i="4"><p><span class="num">4</span> ¿Usa la misma contraseña en más de un sitio?</p>
+      <div class="pregunta" data-i="4"><p><span class="num">4</span> ¿Usa la misma contraseña en el correo y en otra cuenta?</p>
         <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
 
-      <div class="pregunta" data-i="5"><p><span class="num">5</span> ¿Sabe exactamente quién más tiene las claves del negocio?</p>
+      <div class="pregunta" data-i="5"><p><span class="num">5</span> ¿Sabe quién, además de usted, tiene las claves del negocio?</p>
         <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
 
-      <div class="pregunta" data-i="6"><p><span class="num">6</span> ¿Hizo respaldo de los contactos y chats del negocio este mes?</p>
+      <div class="pregunta" data-i="6"><p><span class="num">6</span> ¿Hizo una copia de los contactos y conversaciones del negocio este mes?</p>
         <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
 
-      <div class="pregunta" data-i="7"><p><span class="num">7</span> ¿Alguien de su equipo abrió un enlace de premio o de paquete en los últimos seis meses?</p>
+      <div class="pregunta" data-i="7"><p><span class="num">7</span> ¿Alguien de su equipo abrió un enlace de premio, de regalo o de paquete en los últimos seis meses?</p>
         <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
 
-      <div class="pregunta" data-i="8"><p><span class="num">8</span> ¿El acceso al banco del negocio tiene verificación en dos pasos?</p>
+      <div class="pregunta" data-i="8"><p><span class="num">8</span> ¿El acceso al banco del negocio le pide un segundo código además de la contraseña?</p>
         <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
 
-      <div class="pregunta" data-i="9"><p><span class="num">9</span> Cuando alguien deja de trabajar, ¿se le quita el acceso ese mismo día?</p>
+      <div class="pregunta" data-i="9"><p><span class="num">9</span> Cuando un empleado deja el trabajo, ¿le quitan el acceso a las cuentas ese mismo día?</p>
         <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
 
-      <div class="pregunta" data-i="10"><p><span class="num">10</span> ¿Tiene un plan si mañana pierde el WhatsApp del negocio?</p>
+      <div class="pregunta" data-i="10"><p><span class="num">10</span> ¿Tiene un plan si mañana le roban o le deja de funcionar el WhatsApp del negocio?</p>
         <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
     </div>
 
