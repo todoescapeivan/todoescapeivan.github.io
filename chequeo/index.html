@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chequeo de 10 minutos — Cuentas Seguras · Kaure</title>
+<meta name="description" content="Diez preguntas para saber si su negocio está expuesto a un robo de cuentas. Sin dar datos, sin registrarse. Kaure, Hernandarias.">
+<link rel="stylesheet" href="/estilos.css">
+<style>
+.chequeo{max-width:680px;margin:0 auto}
+.chequeo .pregunta{background:#0e1620;border:1px solid #1d2b38;border-radius:10px;padding:18px 18px 14px;margin:14px 0}
+.chequeo .pregunta p{margin:0 0 14px;font-size:1.02rem;line-height:1.5;color:#eaf3ee}
+.chequeo .opciones{display:flex;gap:8px}
+.chequeo .opciones button{flex:1;padding:14px 8px;font-size:.95rem;font-weight:600;border-radius:8px;cursor:pointer;
+  background:transparent;border:2px solid #2a3b4a;color:#cfe0d7;transition:.15s}
+.chequeo .opciones button:hover{border-color:var(--verde)}
+.chequeo .opciones button.si.on{background:var(--verde);border-color:var(--verde);color:#04120c}
+.chequeo .opciones button.no.on{background:#7a1f1f;border-color:#a12c2c;color:#fff}
+.chequeo .opciones button.nose.on{background:#4a3a10;border-color:#8a6d1b;color:#ffe9a8}
+.chequeo .num{display:inline-block;min-width:26px;color:var(--verde);font-weight:800}
+#resultado{display:none;margin:26px 0;padding:22px;border-radius:10px;background:#0e1620;border:2px solid var(--verde)}
+#resultado h2{margin:0 0 10px;font-size:1.35rem;color:#fff}
+#resultado .marca{font-size:2.4rem;font-weight:800;color:var(--verde);line-height:1}
+#resultado p{margin:10px 0 0;line-height:1.6}
+.cta{display:inline-block;margin:18px 10px 0 0;padding:16px 30px;background:var(--verde);color:#04120c;
+  font-weight:700;border-radius:8px;text-decoration:none}
+.cta.sec{background:transparent;border:2px solid var(--verde);color:var(--verde)}
+.nota{font-size:.88rem;color:#9fb3a8;margin-top:14px}
+</style>
+</head>
+<body>
+<header class="encabezado">
+  <a href="/index.html" class="marca">TODO ESCAPE IVAN</a>
+  <nav>
+    <a href="/servicios.html">Servicios</a>
+    <a href="/proyectos.html">Proyectos</a>
+    <a href="/libro/">Libro</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/sobre-mi.html">Sobre mí</a>
+    <a href="/marcas/">Marcas</a>
+    <a href="/contacto.html">Contacto</a>
+  </nav>
+</header>
+
+<main>
+  <p class="migas"><a href="/index.html">Inicio</a> / <a href="/cuentas-seguras/">Cuentas Seguras</a> / Chequeo</p>
+
+  <div class="chequeo">
+    <h1>¿Qué tan expuesto está su negocio?</h1>
+    <p class="bajada">Diez preguntas, dos minutos. No se registra, no deja datos, no se guarda nada.
+    Al final ve su resultado y decide si quiere hablar.</p>
+
+    <div id="preguntas">
+      <div class="pregunta" data-i="1"><p><span class="num">1</span> ¿La verificación en dos pasos está activa en el WhatsApp del negocio?</p>
+        <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
+
+      <div class="pregunta" data-i="2"><p><span class="num">2</span> ¿Sabe cuántos dispositivos tienen acceso a ese WhatsApp ahora mismo?</p>
+        <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
+
+      <div class="pregunta" data-i="3"><p><span class="num">3</span> ¿El correo de recuperación de sus cuentas es uno que usa hoy?</p>
+        <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
+
+      <div class="pregunta" data-i="4"><p><span class="num">4</span> ¿Usa la misma contraseña en más de un sitio?</p>
+        <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
+
+      <div class="pregunta" data-i="5"><p><span class="num">5</span> ¿Sabe exactamente quién más tiene las claves del negocio?</p>
+        <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
+
+      <div class="pregunta" data-i="6"><p><span class="num">6</span> ¿Hizo respaldo de los contactos y chats del negocio este mes?</p>
+        <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
+
+      <div class="pregunta" data-i="7"><p><span class="num">7</span> ¿Alguien de su equipo abrió un enlace de premio o de paquete en los últimos seis meses?</p>
+        <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
+
+      <div class="pregunta" data-i="8"><p><span class="num">8</span> ¿El acceso al banco del negocio tiene verificación en dos pasos?</p>
+        <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
+
+      <div class="pregunta" data-i="9"><p><span class="num">9</span> Cuando alguien deja de trabajar, ¿se le quita el acceso ese mismo día?</p>
+        <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
+
+      <div class="pregunta" data-i="10"><p><span class="num">10</span> ¿Tiene un plan si mañana pierde el WhatsApp del negocio?</p>
+        <div class="opciones"><button data-v="si">Sí</button><button data-v="no">No</button><button data-v="nose">No sé</button></div></div>
+    </div>
+
+    <div id="resultado">
+      <div class="marca" id="puntaje">0/10</div>
+      <h2 id="titulo"></h2>
+      <p id="detalle"></p>
+      <a class="cta" id="wa" href="https://wa.me/595993441641">Quiero el informe de mi negocio</a>
+      <a class="cta sec" href="/cuentas-seguras/">Ver los servicios</a>
+      <p class="nota">El mensaje sale con su resultado escrito. Nadie más ve sus respuestas: no se guardan
+      en ningún lado.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="pie">
+  <p>© 2026 Carlos Páez · Hernandarias, Alto Paraná, Paraguay</p>
+  <p><a href="/terminos/">Términos</a> · <a href="/privacy.html">Privacidad</a> · <a href="/contacto.html">Contacto</a></p>
+</footer>
+
+<script>
+(function(){
+  var respuestas = {};
+  var cajas = document.querySelectorAll('#preguntas .pregunta');
+
+  cajas.forEach(function(caja){
+    caja.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click', function(){
+        var i = caja.getAttribute('data-i');
+        respuestas[i] = b.getAttribute('data-v');
+        caja.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+        b.classList.add(b.getAttribute('data-v'));
+        b.classList.add('on');
+        if (Object.keys(respuestas).length === 10) mostrar();
+      });
+    });
+  });
+
+  function mostrar(){
+    var riesgo = 0;
+    for (var k in respuestas){ if (respuestas[k] !== 'si') riesgo++; }
+    var seguros = 10 - riesgo;
+
+    document.getElementById('puntaje').textContent = riesgo + ' de 10 en riesgo';
+
+    var titulo, detalle;
+    if (riesgo <= 2){
+      titulo = 'Está mejor que la mayoría.';
+      detalle = 'Igual, casi siempre quedan dos o tres puertas abiertas: el correo de recuperación viejo, ' +
+                'una sesión que nadie recuerda, un empleado que se fue con la clave. Son las que se usan.';
+    } else if (riesgo <= 5){
+      titulo = 'Está en el promedio. Y el promedio es donde entran.';
+      detalle = 'Los casos de la zona no empiezan con un hacker: empiezan con un enlace, un código mal ' +
+                'compartido o un dispositivo que quedó vinculado. Con cinco puertas abiertas, alcanza con una.';
+    } else {
+      titulo = 'Su negocio está expuesto.';
+      detalle = 'No es alarmismo: es el mismo cuadro que vimos en negocios de Alto Paraná que perdieron el ' +
+                'WhatsApp y, con él, el correo y el acceso al banco. Se puede cerrar, y no lleva semanas.';
+    }
+    document.getElementById('titulo').textContent = titulo;
+    document.getElementById('detalle').textContent = detalle;
+
+    var texto = 'Hice el chequeo de Cuentas Seguras: ' + riesgo + ' de 10 en riesgo. Quiero el informe de mi negocio.';
+    document.getElementById('wa').href = 'https://wa.me/595993441641?text=' + encodeURIComponent(texto);
+
+    var r = document.getElementById('resultado');
+    r.style.display = 'block';
+    r.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+})();
+</script>
+</body>
+</html>
