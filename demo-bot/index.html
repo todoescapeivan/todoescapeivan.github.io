@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Asistente de WhatsApp — código y pruebas</title>
+<style>
+:root{--bg:#0d0d10;--tx:#ececec;--gr:#9a9aa4;--ac:#25d366;--rd:#d62828}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 -apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:48px 22px 80px}
+h1{font-size:34px;line-height:1.15;margin:0 0 6px}
+h2{font-size:21px;margin:44px 0 10px;border-bottom:1px solid #23232a;padding-bottom:8px}
+p,li{color:#d6d6d6}
+.sub{color:var(--gr);margin:0 0 26px}
+.tag{display:inline-block;background:#16221a;color:var(--ac);border:1px solid #234b31;
+border-radius:999px;padding:5px 13px;font-size:13px;margin:0 6px 8px 0}
+pre{background:#141419;border:1px solid #23232a;border-radius:10px;padding:16px;overflow:auto;
+font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;color:#cfcfd6}
+.ok{background:#101a12;border-left:3px solid var(--ac);padding:12px 16px;border-radius:6px;
+font-family:ui-monospace,monospace;font-size:14px;white-space:pre-wrap;color:#bfe8cb}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+td,th{border-bottom:1px solid #23232a;padding:9px 6px;text-align:left;color:#d6d6d6}
+a{color:var(--ac)}
+footer{margin-top:56px;color:var(--gr);font-size:14px;border-top:1px solid #23232a;padding-top:18px}
+</style></head><body><div class="wrap">
+
+<h1>Asistente de WhatsApp para un negocio chico</h1>
+<p class="sub">Lógica de decisión en producción · catálogo, pagos, registro y voz · 38 pruebas automatizadas</p>
+
+<span class="tag">Python</span><span class="tag">Meta Cloud API</span><span class="tag">n8n</span>
+<span class="tag">Webhooks</span><span class="tag">Whisper</span><span class="tag">TTS</span><span class="tag">Docker</span>
+
+<h2>Qué es</h2>
+<p>Un asistente que atiende el WhatsApp comercial de un negocio real: entiende el mensaje
+(texto o audio), decide qué contestar, cobra por transferencia y entrega el archivo digital.
+Cuando no sabe, deriva a una persona — no inventa.</p>
+
+<p><strong>Esta página publica la lógica de decisión</strong>, que es lógica pura: recibe texto,
+devuelve texto. La capa de red (API de Meta, transcripción, voz) vive en el servidor privado,
+con credenciales que no se publican.</p>
+
+<h2>El resultado de las pruebas</h2>
+<div class="ok">RESULTADO: 38/38 pasaron
+OK   | hola                                   | Hola, ¿cómo estás? Soy el asistente de Carlos Páez.  Estas son las dos
+OK   | Hola!                                  | Hola, ¿cómo estás? Soy el asistente de Carlos Páez.  Estas son las dos
+OK   | buenas tardes                          | Hola, ¿cómo estás? Soy el asistente de Carlos Páez, de Hernandarias.  
+OK   | menu                                   | Hola, ¿cómo estás? Soy el asistente de Carlos Páez.  Estas son las dos
+OK   | catálogo                               | Hola, ¿cómo estás? Soy el asistente de Carlos Páez.  Estas son las dos
+OK   | ola                                    | Hola, ¿cómo estás? Soy el asistente de Carlos Páez, de Hernandarias.  
+OK   | holaa                                  | Hola, ¿cómo estás? Soy el asistente de Carlos Páez.  Estas son las dos
+OK   | 1                                      | Arquitectura Inversa del Negocio Digital — 50.000 Gs.  31 páginas. El 
+OK   | 2                                      | No empecé desde cero — 50.000 Gs.  82 páginas, PDF y EPUB. El método c
+OK   | 3                                      | Pack 2x1: los dos libros — 50.000 Gs.  Los dos juntos: Arquitectura In
+OK   | COMPRAR 3                              | Pack 2x1: los dos libros — 50.000 Gs.  Los dos juntos: Arquitectura In
+OK   | quiero 2                               | No empecé desde cero — 50.000 Gs.  82 páginas, PDF y EPUB. El método c</div>
+<p>La batería cubre saludos, selección de producto, precios, contenido, pagos, erratas de tipeo,
+texto basura, intento de inyección de prompt y cortesías. Los casos fuera de guion derivan.</p>
+
+<h2>Decisiones de diseño</h2>
+<table>
+<tr><th>Decisión</th><th>Por qué</th></tr>
+<tr><td>Guion cerrado para precios y pagos</td><td>Un número inventado cuesta plata. Lo que no está, se deriva.</td></tr>
+<tr><td>Normalizar erratas antes de buscar palabras clave</td><td>La gente escribe apurada, con una mano y sin tildes.</td></tr>
+<tr><td>La prueba evalúa la respuesta, no el flujo</td><td>Un cambio de texto que rompe una promesa se detecta antes de publicar.</td></tr>
+<tr><td>Voz donde hay conversación, texto donde hay lista</td><td>Un precio necesita poder releerse; una explicación se escucha.</td></tr>
+</table>
+
+<h2>El código</h2>
+<pre>#!/usr/bin/env python3
+&quot;&quot;&quot;Asistente de WhatsApp para un negocio chico — version publica de demostracion.
+
+Contiene la MISMA logica de decision que corre en produccion: normalizacion de
+texto, catalogo de productos, datos de pago y flujo de registro de talento.
+Se quito la capa de red (API de Meta, transcripcion y voz), que vive en el
+worker privado con credenciales que no se publican.
+
+Los numeros, alias y precios de este archivo son de ejemplo.
+
+Autor: Juan Carlos Paez — Hernandarias, Paraguay.
+&quot;&quot;&quot;
+
+import re
+
+# --- datos de ejemplo (reemplazar por los del negocio) ---
+ALIAS = &quot;alias de ejemplo, Banco X, a nombre del titular&quot;
+
+
+PRODUCTOS_WA = {
+    &quot;1&quot;: {&quot;nombre&quot;: &quot;Arquitectura Inversa del Negocio Digital&quot;,
+          &quot;detalle&quot;: &quot;31 páginas. El punto de partida: por qué el software te obliga a trabajar peor. Primera edición, tal como salió.&quot;,
+          &quot;precio&quot;: &quot;50.000 Gs.&quot;},
+    &quot;2&quot;: {&quot;nombre&quot;: &quot;No empecé desde cero&quot;,
+          &quot;detalle&quot;: &quot;82 páginas, PDF y EPUB. El método completo: de la calle al negocio digital, con los números, los errores y las decisiones de un taller de Hernandarias.&quot;,
+          &quot;precio&quot;: &quot;50.000 Gs.&quot;},
+    &quot;3&quot;: {&quot;nombre&quot;: &quot;Pack 2x1: los dos libros&quot;,
+          &quot;detalle&quot;: &quot;Los dos juntos: Arquitectura Inversa (31 páginas) y No empecé desde cero (82 páginas, PDF y EPUB).&quot;,
+          &quot;precio&quot;: &quot;50.000 Gs.&quot;},
+}
+
+MENU_WA = (&quot;Hola, ¿cómo estás? Soy el asistente de Carlos Páez.\n\n&quot;
+           &quot;Estas son las dos puertas:\n\n&quot;
+           &quot;*LIBROS Y RECURSOS* — Kaure Tienda Digital:\n&quot;
+           &quot;1) Arquitectura Inversa del Negocio Digital (31 páginas) — 50.000 Gs.\n&quot;
+           &quot;2) No empecé desde cero (82 páginas, PDF y EPUB) — 50.000 Gs.\n&quot;
+           &quot;3) Pack 2x1: los dos libros — 50.000 Gs.\n\n&quot;
+           &quot;*TALENTO* — Paraguay Potente:\n&quot;
+           &quot;Escribí TALENTO y te anoto en el registro de talento técnico y digital de Alto Paraná.\n\n&quot;
+           &quot;Escribí el número del libro que te interesa, TALENTO, o mandame un audio.&quot;)
+
+PAGO_WA = (&quot;Para completar la compra, transferí a:\n\n&quot;
+           &quot;• Alias: alias de ejemplo\n&quot;
+           &quot;• Banco: Banco Familiar\n&quot;
+           &quot;• A nombre de: JUAN CARLOS PÁEZ\n\n&quot;
+           &quot;Cuando transfieras, mandame por acá la foto del comprobante y te envío los libros.&quot;)
+
+def flujo_catalogo(texto):
+    &quot;&quot;&quot;Menú de libros por WhatsApp. Devuelve (respuesta, consumido).&quot;&quot;&quot;
+    t = (texto or &quot;&quot;).strip().lower().rstrip(&quot;.!&quot;)
+    if not t or len(t) &gt; 40:
+        return &quot;&quot;, False
+    if t in (&quot;hola&quot;, &quot;holaa&quot;, &quot;buenas&quot;, &quot;buen dia&quot;, &quot;buen día&quot;, &quot;menu&quot;, &quot;menú&quot;, &quot;catalogo&quot;,
+             &quot;catálogo&quot;, &quot;productos&quot;, &quot;precio&quot;, &quot;precios&quot;, &quot;info&quot;, &quot;que vendes&quot;, &quot;qué vendés&quot;):
+        return MENU_WA, True
+    m = re.match(r&quot;^(?:comprar|quiero|dame|pedir|me llevo|reservar)\s*(?:el\s*)?(?:pack\s*)?([123])$&quot;, t)
+    if m:
+        k = m.group(1)
+        pr = PRODUCTOS_WA[k]
+        return (f&quot;{pr[&#x27;nombre&#x27;]} — {pr[&#x27;precio&#x27;]}\n\n{pr[&#x27;detalle&#x27;]}\n\n&quot; + PAGO_WA), True
+    if t in (&quot;1&quot;, &quot;2&quot;, &quot;3&quot;):
+        pr = PRODUCTOS_WA[t]
+        return (f&quot;{pr[&#x27;nombre&#x27;]} — {pr[&#x27;precio&#x27;]}\n\n{pr[&#x27;detalle&#x27;]}\n\n&quot;
+                f&quot;Para comprarlo escribí: COMPRAR {t}&quot;), True
+    return &quot;&quot;, False
+
+
+def _normalizar(texto):
+    &quot;&quot;&quot;Minúsculas, sin tildes, y corrige los errores de tipeo más comunes.&quot;&quot;&quot;
+    t = (texto or &quot;&quot;).lower()
+    for a, b in ((&quot;á&quot;, &quot;a&quot;), (&quot;é&quot;, &quot;e&quot;), (&quot;í&quot;, &quot;i&quot;), (&quot;ó&quot;, &quot;o&quot;), (&quot;ú&quot;, &quot;u&quot;), (&quot;ñ&quot;, &quot;n&quot;), (&quot;ü&quot;, &quot;u&quot;)):
+        t = t.replace(a, b)
+    for mal, bien in ((&quot;ola&quot;, &quot;hola&quot;), (&quot;hla&quot;, &quot;hola&quot;), (&quot;holaa&quot;, &quot;hola&quot;), (&quot;preio&quot;, &quot;precio&quot;),
+                      (&quot;presio&quot;, &quot;precio&quot;), (&quot;cuamto&quot;, &quot;cuanto&quot;), (&quot;kuanto&quot;, &quot;cuanto&quot;),
+                      (&quot;komo&quot;, &quot;como&quot;), (&quot;kiero&quot;, &quot;quiero&quot;), (&quot;komprar&quot;, &quot;comprar&quot;)):
+        if t.strip() == mal or t.startswith(mal + &quot; &quot;):
+            t = bien + t[len(mal):]
+    return t
+
+
+def cerebro(texto):
+    t = _normalizar(texto)
+
+    def tiene(*p):
+        return any(x in t for x in p)
+
+    DESCRIPCION = (
+        &quot;Tenemos dos libros, y son una historia completa:\n\n&quot;
+        &quot;*Arquitectura Inversa del Negocio Digital* (31 páginas) — el problema: &quot;
+        &quot;por qué el software te obliga a trabajar peor. Es el punto de partida, tal como salió.\n\n&quot;
+        &quot;*No empecé desde cero* (82 páginas, PDF y EPUB) — la solución: de la calle al negocio digital, &quot;
+        &quot;cómo un taller de Hernandarias se convirtió en un sistema que atiende, informa y vende solo.\n\n&quot;
+        &quot;Los dos juntos salen 50.000 guaraníes.&quot;
+    )
+
+    PAGO = (&quot;Se paga por transferencia: &quot; + ALIAS + &quot;. &quot;
+            &quot;El pack de los dos libros son 50.000 guaraníes. &quot;
+            &quot;Transferís, me mandás la foto del comprobante y te envío el material por acá en el momento.&quot;)
+
+    if tiene(&quot;de que trata&quot;, &quot;de qué trata&quot;, &quot;contenido&quot;, &quot;que trae&quot;, &quot;qué trae&quot;, &quot;que es el libro&quot;, &quot;para quien&quot;, &quot;para quién&quot;):
+        return DESCRIPCION + &quot; ¿Querés que te pase los datos de pago?&quot;
+
+    if tiene(&quot;pack&quot;, &quot;los dos&quot;, &quot;2 libro&quot;, &quot;dos libro&quot;, &quot;2x1&quot;, &quot;combo&quot;, &quot;ambos&quot;):
+        return (&quot;El pack de los dos sale 50.000 guaraníes.\n\n&quot;
+                &quot;*Arquitectura Inversa del Negocio Digital* (31 págs) — el punto de partida: &quot;
+                &quot;por qué el software te obliga a trabajar peor.\n\n&quot;
+                &quot;*No empecé desde cero* (82 págs, PDF y EPUB) — el método completo: &quot;
+                &quot;cómo un negocio de la calle se vuelve un sistema que atiende, informa y vende solo.\n\n&quot;
+                + PAGO + &quot;\n¿Te paso los datos de pago?&quot;)
+
+    if tiene(&quot;auditor&quot;, &quot;seguridad&quot;, &quot;hack&quot;, &quot;vulnerab&quot;, &quot;me robaron&quot;):
+        return (&quot;La auditoría de seguridad revisa tu web, tu red y tus accesos, y te entrego un informe &quot;
+                &quot;con los riesgos y cómo cerrarlos.\n\n&quot;
+                &quot;Exprés: 500.000 (una hora, revisión de web, red y accesos, informe de 10 puntos).\n&quot;
+                &quot;Completa: 1.200.000 (incluye plan de corrección).\n\n&quot;
+                &quot;¿Es para un negocio solo con web, o también con computadoras en red?&quot;)
+
+    if tiene(&quot;horario&quot;, &quot;a que hora&quot;, &quot;abren&quot;, &quot;abierto&quot;, &quot;cierran&quot;, &quot;domingo&quot;, &quot;sabado&quot;):
+        return (&quot;El taller de Todo Escape Iván atiende de lunes a sábado, de 7:00 a 16:00, &quot;
+                &quot;en Hernandarias.\n\nOjo: ese taller lo atiende Carlos en persona, no este chat. &quot;
+                &quot;Si querés, te paso el número: 0000 000 000.&quot;)
+
+    if tiene(&quot;donde queda&quot;, &quot;direccion&quot;, &quot;ubicac&quot;, &quot;como llego&quot;, &quot;donde estan&quot;, &quot;donde es&quot;):
+        return (&quot;El taller está en Hernandarias, Alto Paraná. Para la dirección exacta y cómo llegar, &quot;
+                &quot;escribile a Carlos al 0000 000 000, que te manda la ubicación.&quot;)
+
+    if tiene(&quot;escape&quot;, &quot;silenciador&quot;, &quot;caño&quot;, &quot;cano&quot;, &quot;mofle&quot;, &quot;tubo&quot;, &quot;soldadura&quot;, &quot;taller&quot;):
+        return (&quot;Eso es Todo Escape Iván: escapes, silenciadores, caños y soldadura, &quot;
+                &quot;26 años en Hernandarias.\n\nEse taller no lo maneja este chat: &quot;
+                &quot;escribile a Carlos al 0000 000 000 y te atiende él directamente.&quot;)
+
+    if tiene(&quot;precio&quot;, &quot;cuanto&quot;, &quot;cuánto&quot;, &quot;sale&quot;, &quot;vale&quot;, &quot;costo&quot;, &quot;cuánto es&quot;):
+        return DESCRIPCION + &quot;\n\n¿Te interesa el pack, o preferís uno solo?&quot;
+
+    if tiene(&quot;pago&quot;, &quot;pagar&quot;, &quot;transfer&quot;, &quot;alias&quot;, &quot;deposit&quot;, &quot;tigo&quot;, &quot;billetera&quot;, &quot;comprobante&quot;):
+        return PAGO + &quot; ¿Querés que te confirme el pack de los dos?&quot;
+
+    if tiene(&quot;libro&quot;, &quot;pdf&quot;, &quot;epub&quot;, &quot;leer&quot;, &quot;comprar&quot;):
+        return DESCRIPCION + &quot;\n\n¿Te paso los datos de pago?&quot;
+
+    if tiene(&quot;hola&quot;, &quot;buenas&quot;, &quot;buen día&quot;, &quot;buenas tardes&quot;, &quot;buenas noches&quot;, &quot;que tal&quot;, &quot;qué tal&quot;, &quot;consulta&quot;):
+        return (&quot;Hola, ¿cómo estás? Soy el asistente de Carlos Páez, de Hernandarias.\n\n&quot;
+                &quot;*Libros:* Arquitectura Inversa del Negocio Digital (31 págs) y No empecé desde cero &quot;
+                &quot;(82 págs, PDF y EPUB). Los dos juntos, 50.000.\n&quot;
+                &quot;*Auditoría de seguridad* para negocios, desde 500.000.\n&quot;
+                &quot;*Paraguay Potente:* si buscás trabajo en la zona, escribí TALENTO y te anoto.\n\n&quot;
+                &quot;¿Qué te interesa ver?&quot;)
+
+    if tiene(&quot;gracias&quot;, &quot;muchas gracias&quot;, &quot;genial&quot;, &quot;perfecto&quot;):
+        return (&quot;De nada. Cualquier cosa me escribís por acá, o llamás al 0000 000 000. Buen día.&quot;)
+
+    return (&quot;Te respondo con gusto. Contame un poco más: ¿te interesan los libros de Kaure &quot;
+            &quot;(los dos por 50.000), o una auditoría de seguridad para tu negocio?&quot;)
+</pre>
+
+<h2>Qué no está acá</h2>
+<p>Credenciales, tokens y números reales. La capa de red. Los flujos de n8n y el worker de
+producción. Datos de clientes. Los precios, el alias y los números de este código son de ejemplo.</p>
+
+<footer>
+Juan Carlos Páez — Hernandarias, Alto Paraná, Paraguay · Licencia MIT<br>
+<a href="/">todoescapeivan.com</a>
+</footer>
+</div></body></html>
