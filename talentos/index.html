@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Base de Talentos — Paraguay Potente</title>
+<style>
+  :root { --verde:#1f7a4d; --verde2:#2ea36a; --fondo:#0b1410; --panel:#122019; --texto:#eaf3ee; --gris:#9fb3a8; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--fondo); color:var(--texto);
+         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+         display:flex; flex-direction:column; min-height:100vh; }
+  header { padding:16px 18px; border-bottom:1px solid #1d3328; display:flex; gap:12px; align-items:center; }
+  .avatar { width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,var(--verde),var(--verde2));
+            display:flex; align-items:center; justify-content:center; font-weight:700; font-size:19px; }
+  .quien { line-height:1.25; }
+  .quien b { font-size:16px; }
+  .quien span { display:block; font-size:12.5px; color:var(--gris); }
+  main { flex:1; padding:18px; overflow-y:auto; display:flex; flex-direction:column; gap:12px; }
+  .burbuja { max-width:88%; padding:12px 15px; border-radius:16px; font-size:15.5px; line-height:1.5; }
+  .tania { background:var(--panel); border:1px solid #1d3328; border-bottom-left-radius:4px; align-self:flex-start; }
+  .yo { background:var(--verde); border-bottom-right-radius:4px; align-self:flex-end; }
+  .progreso { font-size:12px; color:var(--gris); margin-top:6px; }
+  footer { padding:12px 14px 20px; border-top:1px solid #1d3328; background:#0e1914; }
+  form { display:flex; gap:8px; }
+  input { flex:1; padding:14px 16px; border-radius:12px; border:1px solid #25463a; background:#0a1511;
+          color:var(--texto); font-size:16px; }
+  input:focus { outline:2px solid var(--verde2); }
+  button { padding:14px 20px; border:0; border-radius:12px; background:var(--verde); color:#fff;
+           font-size:16px; font-weight:600; }
+  button:disabled { opacity:.45; }
+  .empezar { width:100%; padding:16px; font-size:17px; }
+  .nota { font-size:12.5px; color:var(--gris); text-align:center; margin-top:10px; line-height:1.5; }
+  .audio-btn { background:none; border:0; color:var(--gris); font-size:12.5px; padding:4px 0 0; text-decoration:underline; }
+  .fin { background:#12301f; border:1px solid var(--verde); }
+</style>
+</head>
+<body>
+<header>
+  <div class="avatar">T</div>
+  <div class="quien">
+    <b>Tania · Paraguay Potente</b>
+    <span>Base de talentos · registro</span>
+  </div>
+</header>
+
+<main id="chat">
+  <div class="burbuja tania">Hola. Soy Tania. Te hago cinco preguntas y quedás en la base de talentos.<br><br>
+  Te aviso desde ahora: <b>no prometemos empleo</b>. Somos el puente entre el talento y la empresa.</div>
+  <div id="arranque"><button class="empezar" id="btnEmpezar">Empezar ▶</button></div>
+</main>
+
+<footer>
+  <form id="form" style="display:none">
+    <input id="resp" type="text" autocomplete="off" placeholder="Escribí tu respuesta…" required>
+    <button id="enviar" type="submit">Enviar</button>
+  </form>
+  <div class="nota" id="nota">Tus datos quedan en la base de Paraguay Potente. No se comparten con terceros.</div>
+</footer>
+
+<script>
+const WEBHOOK = "https://n8n.todoescapeivan.com/webhook/talentos-registro";
+const chat = document.getElementById("chat");
+const form = document.getElementById("form");
+const resp = document.getElementById("resp");
+const nota = document.getElementById("nota");
+
+const PASOS = [
+  { campo:"nombre",       audio:"audio/01_nombre.mp3",       texto:"Primera: ¿cuál es tu nombre y apellido?", placeholder:"Ej: Carlos Páez" },
+  { campo:"especialidad", audio:"audio/02_especialidad.mp3",  texto:"Segunda: ¿cuál es tu especialidad? ¿Qué sabés hacer?", placeholder:"Ej: electricista, ventas, cocina" },
+  { campo:"tiempo",       audio:"audio/03_tiempo.mp3",        texto:"Tercera: ¿hace cuánto tiempo trabajás en eso?", placeholder:"Ej: 5 años" },
+  { campo:"numero",       audio:"audio/04_numero.mp3",        texto:"Cuarta: ¿cuál es tu número de teléfono?", placeholder:"Ej: 0981 123 456" },
+  { campo:"comentario",   audio:"audio/05_comentario.mp3",    texto:"Quinta y última: ¿querés dejar un comentario? Si no, escribí <b>no</b>.", placeholder:"Comentario o 'no'" }
+];
+
+let audioActual = null;
+let indice = 0;
+const datos = { origen: "web" };
+
+function burbuja(texto, clase) {
+  const d = document.createElement("div");
+  d.className = "burbuja " + clase;
+  d.innerHTML = texto;
+  chat.appendChild(d);
+  chat.scrollTop = chat.scrollHeight;
+  return d;
+}
+
+function hablar(src) {
+  try {
+    if (audioActual) { audioActual.pause(); }
+    audioActual = new Audio(src);
+    audioActual.play().catch(() => {});
+  } catch (e) {}
+}
+
+function preguntar() {
+  const paso = PASOS[indice];
+  burbuja(paso.texto + '<div class="progreso">' + (indice + 1) + " de 5</div>", "tania");
+  hablar(paso.audio);
+  resp.value = "";
+  resp.placeholder = paso.placeholder;
+  resp.focus();
+  nota.textContent = "Escribí y tocá Enviar. Podés volver atrás corrigiendo antes de enviar cada respuesta.";
+}
+
+document.getElementById("btnEmpezar").onclick = () => {
+  document.getElementById("arranque").remove();
+  hablar("audio/00_intro.mp3");
+  form.style.display = "flex";
+  preguntar();
+};
+
+form.onsubmit = async (e) => {
+  e.preventDefault();
+  const valor = resp.value.trim();
+  if (!valor) return;
+  const paso = PASOS[indice];
+  datos[paso.campo] = valor;
+  burbuja(valor.replace(/[<>]/g, ""), "yo");
+  indice += 1;
+  if (indice < PASOS.length) { preguntar(); return; }
+
+  form.style.display = "none";
+  resp.disabled = true;
+  burbuja("Guardando tu registro…", "tania");
+  try {
+    const r = await fetch(WEBHOOK, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(datos)
+    });
+    if (!r.ok) throw new Error("http " + r.status);
+    chat.lastElementChild.remove();
+    burbuja("Listo. <b>Quedaste registrado</b> en la base de talentos de Paraguay Potente.<br><br>" +
+            "Cuando una empresa busque tu especialidad, tus datos están acá. No prometemos empleo: somos el puente." , "tania fin");
+    hablar("audio/06_fin.mp3");
+    nota.textContent = "Gracias. Guardá esta página para volver.";
+  } catch (err) {
+    chat.lastElementChild.remove();
+    burbuja("No pudimos guardar el registro. Revisá tu conexión y probá de nuevo.", "tania");
+    form.style.display = "flex";
+    indice = PASOS.length - 1;
+    resp.disabled = false;
+  }
+};
+</script>
+</body>
+</html>
