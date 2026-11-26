@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Secretaría con IA — Kaure</title>
+<meta name="description" content="Una secretaría con voz que atiende tu WhatsApp y tu Telegram las 24 horas. Contesta, cotiza, agenda y te avisa. Prueba de 7 días.">
+<style>
+  :root{ --verde:#082A22; --lima:#C6F24E; --blanco:#fff; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ background:var(--verde); color:var(--blanco); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap{ max-width:720px; margin:0 auto; padding:28px 22px 60px; }
+  .marca{ color:var(--lima); font-size:13px; letter-spacing:3px; text-transform:uppercase; font-weight:700; }
+  h1{ font-size:clamp(30px,7vw,46px); line-height:1.08; margin:22px 0 14px; letter-spacing:-.5px; }
+  h1 em{ color:var(--lima); font-style:normal; }
+  .sub{ font-size:clamp(17px,4vw,20px); color:rgba(255,255,255,.9); margin-bottom:26px; }
+  .audio{ background:rgba(255,255,255,.06); border:1px solid rgba(198,242,78,.35); border-radius:16px; padding:16px 18px; margin:0 0 26px; }
+  .audio p{ font-size:14px; color:rgba(255,255,255,.75); margin-bottom:10px; }
+  audio{ width:100%; }
+  ul{ list-style:none; margin:0 0 28px; }
+  li{ display:flex; gap:12px; align-items:flex-start; font-size:17px; margin-bottom:12px; }
+  li::before{ content:""; width:10px; height:10px; border-radius:50%; background:var(--lima); margin-top:8px; flex:0 0 10px; }
+  h2{ font-size:15px; letter-spacing:2px; text-transform:uppercase; color:var(--lima); margin:34px 0 14px; }
+  .plan{ border:1px solid rgba(255,255,255,.18); border-radius:14px; padding:16px 18px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; gap:14px; }
+  .plan strong{ font-size:16px; display:block; }
+  .plan small{ color:rgba(255,255,255,.65); font-size:13px; }
+  .precio{ text-align:right; font-size:15px; white-space:nowrap; }
+  .precio b{ color:var(--lima); font-size:19px; display:block; }
+  .cta{ display:block; text-align:center; background:var(--lima); color:#082A22; font-weight:800; font-size:18px; padding:16px; border-radius:14px; text-decoration:none; margin:26px 0 12px; }
+  .cta.dos{ background:transparent; color:var(--lima); border:2px solid var(--lima); font-size:16px; padding:14px; }
+  .nota{ font-size:13px; color:rgba(255,255,255,.6); text-align:center; margin-top:8px; }
+  footer{ margin-top:44px; padding-top:20px; border-top:1px solid rgba(255,255,255,.14); font-size:12px; letter-spacing:2px; color:rgba(255,255,255,.55); text-transform:lowercase; text-align:center; }
+  footer a{ color:rgba(255,255,255,.75); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="marca">Kaure · Todo Escape Iván</div>
+
+  <h1>Mientras dormís, alguien pregunta el precio. <em>Si nadie contesta, compra en otro lado.</em></h1>
+  <p class="sub">Una secretaría con voz que atiende tu WhatsApp y tu Telegram las 24 horas: contesta, cotiza, agenda y te pasa el informe del mes.</p>
+
+  <div class="audio">
+    <p>Escuchala atender — voz de Tania:</p>
+    <audio controls preload="metadata" src="audio/tania.mp3"></audio>
+  </div>
+
+  <ul>
+    <li>Atiende WhatsApp y Telegram al mismo tiempo, sin dormir y sin olvidarse.</li>
+    <li>Contesta, cotiza, agenda y te avisa cuando algo necesita tu decisión.</li>
+    <li>Prueba de 7 días. Se paga por transferencia o en BTC.</li>
+  </ul>
+
+  <h2>Qué incluye</h2>
+  <div class="plan"><div><strong>Telegram</strong><small>Alta y puesta en marcha</small></div><div class="precio"><b>USD 180</b>+ USD 69 / mes</div></div>
+  <div class="plan"><div><strong>WhatsApp oficial</strong><small>Número propio verificado</small></div><div class="precio"><b>USD 400</b>+ USD 120 / mes</div></div>
+  <div class="plan"><div><strong>Los dos canales</strong><small>Una sola memoria</small></div><div class="precio"><b>USD 500</b>+ USD 149 / mes</div></div>
+
+  <a class="cta" href="https://wa.me/595974393725?text=Quiero%20la%20secretar%C3%ADa%20con%20IA">Escribinos al WhatsApp oficial</a>
+  <a class="cta dos" href="https://wa.me/595986610322?text=Quiero%20la%20secretar%C3%ADa%20con%20IA">O al WhatsApp vinculado</a>
+  <p class="nota">Prueba de 7 días. Si no te sirve, no seguís. <a href="/pagos.html" style="color:#C6F24E">Formas de pago</a></p>
+
+  <footer>todoescapeivan · kaure tienda digital · paraguay potente</footer>
+</div>
+</body>
+</html>
