@@ -2,212 +2,139 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kaure Tienda Digital — secretaría con IA para tu negocio</title>
-<meta name="description" content="Una secretaría con IA que contesta, vende, agenda, filtra y deriva. 24 horas, en WhatsApp o Telegram. Hernandarias, Alto Paraná.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mostrador con IA — Kaure Tienda Digital</title>
+<meta name="description" content="El mostrador que no cierra: atiende tu WhatsApp 24 horas, contesta, cotiza con tu lista y te avisa. Tres versiones según tu rubro. Instalación sin cargo este mes y 7 días de prueba.">
 <style>
-  :root{ --verde:#0f7b3f; --verde2:#0b5c2e; --tinta:#12211a; --gris:#5b6b62; --fondo:#f6f8f6; --amarillo:#e8b800; }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--fondo);color:var(--tinta);line-height:1.55}
-  nav{background:#0b3d21;padding:10px 12px;text-align:center;position:sticky;top:0;z-index:5}
-  nav a{color:#e8f5ec;text-decoration:none;font-size:.86rem;margin:0 8px;display:inline-block;padding:3px 0}
-  nav a.activo{color:#fff;border-bottom:2px solid #6ee7a0;font-weight:600}
-  header{background:linear-gradient(160deg,var(--verde) 0%,var(--verde2) 100%);color:#fff;padding:34px 20px 28px;text-align:center}
-  header h1{margin:0 0 6px;font-size:1.8rem;letter-spacing:.3px}
-  header p{margin:0;opacity:.95;font-size:.99rem}
-  .sello{display:inline-block;margin-top:12px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:5px 12px;border-radius:999px;font-size:.83rem}
-  main{max-width:760px;margin:0 auto;padding:0 16px 34px}
-  section{background:#fff;border-radius:14px;padding:18px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.07)}
-  h2{font-size:1.12rem;margin:0 0 12px;color:var(--verde2)}
-  p{margin:0 0 10px}
-  ul{margin:0;padding-left:20px} li{margin:6px 0}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .mini{background:#f2f6f2;border:1px solid #e0e8e1;border-radius:10px;padding:12px}
-  .mini b{display:block;color:var(--verde2);font-size:.95rem;margin-bottom:4px}
-  .mini span{font-size:.9rem;color:#3a4a40}
-  table{width:100%;border-collapse:collapse;font-size:.93rem}
-  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid #e6ece7}
-  th{background:#eef4ef;color:var(--verde2);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}
-  td b{color:var(--tinta)}
-  .destacado{background:#eef8f1;border-left:4px solid var(--verde);padding:12px 14px;border-radius:8px;font-size:.95rem}
-  .alerta{background:#fff8e6;border-left:4px solid var(--amarillo);padding:12px 14px;border-radius:8px;font-size:.95rem}
-  .cuenta{font-size:1.6rem;font-weight:800;color:var(--verde);margin:4px 0}
-  .cuenta small{display:block;font-size:.85rem;font-weight:400;color:var(--gris)}
-  .botones{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-  a.boton{display:block;flex:1 1 200px;text-align:center;text-decoration:none;padding:14px 16px;border-radius:10px;font-weight:700;background:var(--verde);color:#fff}
-  a.boton.alt{background:#fff;color:var(--verde);border:2px solid var(--verde)}
-  footer{text-align:center;font-size:.85rem;color:var(--gris);padding:20px 16px 34px}
-  .cita{border-left:3px solid #cfdcd2;padding-left:12px;color:#33443a;font-style:italic}
-  @media(max-width:560px){ .grid{grid-template-columns:1fr} header h1{font-size:1.5rem} section{padding:15px} }
+  :root{ --verde:#082A22; --lima:#C6F24E; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ background:var(--verde); color:#fff; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.55; }
+  .wrap{ max-width:760px; margin:0 auto; padding:26px 20px 70px; }
+  .marca{ color:var(--lima); font-size:12px; letter-spacing:3px; text-transform:uppercase; font-weight:700; }
+  h1{ font-size:clamp(32px,8vw,52px); line-height:1.05; margin:18px 0 14px; letter-spacing:-1px; }
+  h1 em{ color:var(--lima); font-style:normal; }
+  .sub{ font-size:clamp(17px,4.2vw,21px); color:rgba(255,255,255,.9); }
+  h2{ font-size:13px; letter-spacing:2.5px; text-transform:uppercase; color:var(--lima); margin:46px 0 16px; }
+  p{ margin-bottom:14px; color:rgba(255,255,255,.88); }
+  .card{ border:1px solid rgba(255,255,255,.16); border-radius:14px; padding:18px 20px; margin-bottom:12px; }
+  .card.dest{ border-color:var(--lima); background:rgba(198,242,78,.08); }
+  .card .top{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap; }
+  .card strong{ font-size:18px; }
+  .card .precio{ color:var(--lima); font-weight:800; font-size:20px; white-space:nowrap; }
+  .card small{ display:block; margin-top:6px; color:rgba(255,255,255,.7); font-size:14px; }
+  ul{ list-style:none; margin:0 0 18px; }
+  li{ display:flex; gap:11px; margin-bottom:10px; font-size:16px; }
+  li::before{ content:""; width:9px; height:9px; border-radius:50%; background:var(--lima); margin-top:9px; flex:0 0 9px; }
+  .no li::before{ background:#E0E0E0; opacity:.5; }
+  .cta{ display:block; text-align:center; background:var(--lima); color:#082A22; font-weight:800;
+    font-size:18px; padding:16px; border-radius:14px; text-decoration:none; margin:26px 0 10px; }
+  .cta.dos{ background:transparent; color:var(--lima); border:2px solid var(--lima); font-size:16px; }
+  .nota{ font-size:14px; color:rgba(255,255,255,.65); text-align:center; }
+  .comparativa{ display:flex; gap:14px; flex-wrap:wrap; }
+  .comparativa div{ flex:1 1 200px; border:1px solid rgba(255,255,255,.14); border-radius:12px; padding:16px; }
+  .comparativa b{ color:var(--lima); font-size:24px; display:block; }
+  .comparativa span{ font-size:14px; color:rgba(255,255,255,.72); }
+  footer{ margin-top:50px; padding-top:18px; border-top:1px solid rgba(255,255,255,.14);
+    font-size:12px; letter-spacing:2px; color:rgba(255,255,255,.5); text-transform:lowercase; text-align:center; }
+  footer a{ color:rgba(255,255,255,.75); }
 </style>
 </head>
 <body>
+<div class="wrap">
+  <div class="marca">Kaure Tienda Digital · Todo Escape Iván</div>
 
-<nav>
-  <a href="https://todoescapeivan.com/servicios.html">Servicios</a>
-  <a href="https://todoescapeivan.com/proyectos.html">Proyectos</a>
-  <a href="https://todoescapeivan.com/libro/">Libro</a>
-  <a href="https://todoescapeivan.com/blog.html">Blog</a>
-  <a href="https://todoescapeivan.com/sobre-mi.html">Sobre mí</a>
-  <a href="https://todoescapeivan.com/marcas/">Marcas</a>
-  <a href="https://todoescapeivan.com/contacto.html">Contacto</a>
-</nav>
+  <h1>Tu mostrador <em>no cierra</em>.</h1>
+  <p class="sub">Un asistente con nombre y voz propia que atiende el negocio las 24 horas: contesta,
+  cotiza con tu lista y te avisa cuando algo necesita tu decisión.</p>
 
-<header>
-  <h1>Kaure Tienda Digital</h1>
-  <p>Una secretaría con IA que atiende tu negocio a toda hora. Contesta, vende, agenda, filtra y deriva.</p>
-  <div class="sello">Hernandarias · Alto Paraná · Paraguay &nbsp;·&nbsp; Precios de lanzamiento</div>
-</header>
+  <a class="cta" href="https://wa.me/595974393725?text=Quiero%20ver%20el%20mostrador%20funcionando">Verlo funcionando por WhatsApp</a>
+  <p class="nota">Instalación sin cargo este mes · 7 días de prueba</p>
 
-<main>
+  <h2>Qué es</h2>
+  <p>No es un menú de respuestas: es alguien que atiende. Se le habla por audio o por texto y contesta
+  hablando, con la voz de Tania o con la voz del dueño.</p>
+  <p>Se instala con la información real del negocio: precios, horarios y el tono de la casa. Lo que no
+  sabe no lo inventa: lo consulta o lo pasa a una persona.</p>
+  <p>Un taller de caños de escape de 26 años enseñó esto: el cliente no se va por el precio, se va
+  porque nadie le contestó.</p>
 
-  <section>
-    <h2>Qué es</h2>
-    <p>Un asistente con nombre y voz propia que atiende el negocio las 24 horas. Se le habla por audio o
-       por texto y contesta hablando. No es un menú de respuestas: es alguien que atiende.</p>
-    <p>Se instala en un día, con la información real del negocio: precios, horarios, stock y el tono del
-       dueño. Lo que no sabe no lo inventa: lo consulta o lo pasa a una persona.</p>
-    <p class="cita">Un taller de caños de escape de 26 años me enseñó que el cliente no se va por el precio.
-       Se va porque nadie le contestó.</p>
-  </section>
+  <h2>Tres versiones, según tu rubro</h2>
+  <div class="card">
+    <div class="top"><strong>A · Metalúrgica, taller u obra</strong><span class="precio">Gs. 990.000</span></div>
+    <small>Toma el pedido con medidas, materiales y cantidad. Cotiza con tu lista y deja la orden escrita
+    para producción. No negocia ni inventa precios.</small>
+  </div>
+  <div class="card dest">
+    <div class="top"><strong>B · Comercio o tienda</strong><span class="precio">Gs. 890.000</span></div>
+    <small>Contesta consultas, dice los precios de tu lista y toma el pedido con los datos de entrega.
+    No carga stock, no cobra y no gestiona envíos.</small>
+  </div>
+  <div class="card">
+    <div class="top"><strong>C · Consultorio o profesional</strong><span class="precio">Gs. 1.200.000</span></div>
+    <small>Agenda turnos, confirma asistencia y recuerda un día antes. No da indicaciones médicas.</small>
+  </div>
+  <p class="nota">Precios por mes, en guaraníes. La instalación no se cobra este mes.</p>
 
+  <h2>Si querés que además ejecute</h2>
+  <p>El mostrador atiende. Un <b>agente a medida</b> trabaja dentro del sistema: carga pedidos, consulta
+  stock, arma el informe y vigila lo que le pidas.</p>
+  <div class="card"><div class="top"><strong>Agente Esencial</strong><span class="precio">Gs. 1.500.000 + 690.000/mes</span></div><small>Una tarea, un canal.</small></div>
+  <div class="card"><div class="top"><strong>Agente Pro</strong><span class="precio">Gs. 3.500.000 + 1.200.000/mes</span></div><small>Hasta tres tareas y conexión con tu sistema (stock, planilla, CRM).</small></div>
+  <div class="card"><div class="top"><strong>Agente a medida</strong><span class="precio">desde Gs. 6.500.000</span></div><small>Multicanal y flujos internos. Desde Gs. 1.900.000 por mes.</small></div>
+  <p class="nota">Diagnóstico de 30 minutos sin cargo. Se paga mitad al aprobar y mitad al entregar.</p>
 
-  <section>
-    <h2>Escuchá la voz</h2>
-    <p>Así atiende. Sin música, sin locutor: la voz real del asistente contestando una llamada
-       de un cliente de Hernandarias.</p>
-    <video controls preload="metadata" poster="demo_tania_poster.png"
-           style="width:100%;border-radius:12px;background:#0a0a0a;margin-top:6px">
-      <source src="demo_tania.mp4" type="video/mp4">
-      Tu navegador no reproduce el video. <a href="demo_tania.mp4">Descargalo acá</a>.
-    </video>
-    <p style="margin-top:14px;font-size:.95rem"><b>Elegí la voz al dar de alta.</b> Escuchá las dos
-       voces paraguayas disponibles:</p>
-    <div class="grid" style="margin-top:8px">
-      <div class="mini">
-        <b>Tania · mujer</b>
-        <audio controls preload="none" style="width:100%;margin-top:6px">
-          <source src="demo_tania.mp3" type="audio/mpeg">
-        </audio>
-      </div>
-      <div class="mini">
-        <b>Mario · hombre</b>
-        <audio controls preload="none" style="width:100%;margin-top:6px">
-          <source src="demo_mario.mp3" type="audio/mpeg">
-        </audio>
-      </div>
-    </div>
-    <p style="margin-top:10px;font-size:.9rem;color:var(--gris)">¿Querés que hable con la voz del
-       dueño? Se clona con cinco minutos de grabación. Incluido para los diez fundadores.</p>
-  </section>
+  <h2>Lo que no hace</h2>
+  <ul class="no">
+    <li>No negocia el precio.</li>
+    <li>No inventa precios ni plazos que el dueño no autorizó.</li>
+    <li>No da consejos legales, médicos ni financieros.</li>
+    <li>No reemplaza a tu gente en la caja.</li>
+    <li>No prometemos guaraní con calidad todavía: entiende el pedido mezclado con castellano, pero no lo garantizamos.</li>
+  </ul>
+  <p>Se dice antes de vender, no después.</p>
 
-  <section>
-    <h2>Las cinco funciones</h2>
-    <div class="grid">
-      <div class="mini"><b>1 · Atender</b><span>Contesta 24 horas en WhatsApp, redes y teléfono. Con la información real del negocio.</span></div>
-      <div class="mini"><b>2 · Vender</b><span>Dice el precio y qué incluye en un solo mensaje, manda el link de pago, verifica y entrega.</span></div>
-      <div class="mini"><b>3 · Agendar</b><span>Consulta la agenda real, reserva, mueve y cancela sin doble reserva. Confirma y recuerda.</span></div>
-      <div class="mini"><b>4 · Filtrar</b><span>Separa al que pregunta en serio del curioso. Toma recado completo: nombre, motivo, urgencia.</span></div>
-      <div class="mini"><b>5 · Derivar</b><span>Pasa a una persona cuando se lo piden o si hay enojo, con el resumen escrito de lo que pasó.</span></div>
-      <div class="mini"><b>+ · Informe mensual</b><span>Consultas, ventas y lo que quedó sin cerrar. Se entrega sin que el cliente lo pida.</span></div>
-    </div>
-  </section>
+  <h2>Lo que cuesta una secretaria de verdad</h2>
+  <p>Sueldo mínimo Gs. 3.000.000 más IPS: <b>Gs. 3.495.000 al mes</b>. Sin aguinaldo, vacaciones, faltas
+  y sin cubrir la noche ni el domingo.</p>
+  <div class="comparativa">
+    <div><b>Gs. 890.000</b><span>El mostrador de comercio. Una secretaria cuesta 3,9 veces más y trabaja ocho horas.</span></div>
+    <div><b>Gs. 990.000</b><span>El de taller. Contesta a las once de la noche sin costo extra.</span></div>
+  </div>
 
-  <section>
-    <h2>Lo que no hace</h2>
-    <ul>
-      <li>No negocia el precio.</li>
-      <li>No da consejos legales, médicos ni financieros.</li>
-      <li>No promete plazos que el dueño no autorizó.</li>
-      <li>No transcribe guaraní con calidad todavía: entiende el pedido cuando viene mezclado con
-          castellano, pero no lo prometemos hasta que esté.</li>
-    </ul>
-    <div class="alerta" style="margin-top:10px">Se dice antes de vender, no después.</div>
-  </section>
+  <h2>Cómo se instala</h2>
+  <ul>
+    <li><b>Cuatro datos:</b> nombre del negocio, lista de precios, número donde atiende y qué no debe contestar.</li>
+    <li><b>Perfil propio:</b> memoria separada de la de otros clientes.</li>
+    <li><b>Guion:</b> saludo, preguntas del rubro, precios y derivación a una persona.</li>
+    <li><b>Canal:</b> WhatsApp oficial, WhatsApp vinculado o Telegram.</li>
+    <li><b>Prueba real:</b> se le manda un pedido delante del cliente y se corrige en el momento.</li>
+    <li><b>7 días de prueba:</b> corren desde la instalación. Si no le sirve, no sigue.</li>
+  </ul>
+  <p><b>Total: una tarde de trabajo.</b> Del lado del cliente, una hora de conversación.</p>
 
-  <section>
-    <h2>Precios</h2>
-    <table>
-      <tr><th>Plan</th><th>Instalación</th><th>Por mes</th></tr>
-      <tr><td><b>Telegram</b></td><td>USD 180 · Gs. 1.143.000</td><td><b>USD 69</b> · Gs. 438.000</td></tr>
-      <tr><td><b>WhatsApp</b></td><td>USD 400 · Gs. 2.540.000</td><td><b>USD 120</b> · Gs. 762.000</td></tr>
-      <tr><td><b>Los dos canales</b></td><td>USD 500 · Gs. 3.175.000</td><td><b>USD 149</b> · Gs. 946.000</td></tr>
-      <tr><td>Prueba</td><td colspan="2">72 horas con el número del cliente, sin costo</td></tr>
-    </table>
-    <p style="margin-top:10px;font-size:.92rem;color:var(--gris)">La instalación se puede pagar en dos veces.
-       Voz propia del dueño: +USD 10/mes. Idioma adicional: +USD 10/mes.</p>
-  </section>
+  <h2>Los otros servicios</h2>
+  <div class="card"><div class="top"><strong>Auditoría del sistema y del agente</strong><span class="precio">Gs. 590.000</span></div>
+  <small>90 minutos, seis preguntas, semáforo rojo/amarillo/verde en una página. Completa: Gs. 2.400.000 con pruebas reales y retest a 30 días. Si no hay nada que valga la pena arreglar, no se cobra.</small></div>
+  <div class="card"><div class="top"><strong>Libros</strong><span class="precio">Gs. 50.000</span></div>
+  <small>Pack 2x1: <i>Arquitectura Inversa del Negocio Digital</i> (31 págs) y <i>No empecé desde cero</i> (82 págs, PDF y EPUB). Los dos al precio de uno.</small></div>
 
-  <section>
-    <h2>Cuánto cuesta una secretaria de verdad</h2>
-    <p>Sueldo mínimo de Gs. 3.000.000 más IPS: <b>Gs. 3.495.000 al mes</b>. Sin contar aguinaldo,
-       vacaciones, faltas ni el mes que se va.</p>
-    <div class="cuenta">Gs. 762.000<small>El plan de WhatsApp. Una secretaria cuesta 4,6 veces más, y trabaja ocho horas.</small></div>
-    <div class="cuenta">Gs. 946.000<small>Los dos canales. Una secretaria cuesta 3,7 veces más. La misma memoria en WhatsApp y en Telegram.</small></div>
-  </section>
+  <h2>Preguntas que siempre aparecen</h2>
+  <p><b>¿Y si se corta la luz del local?</b> El asistente no vive en el local: el teléfono tiene que estar
+  prendido y con datos. Si se apaga, deja de atender.</p>
+  <p><b>¿El número es mío?</b> Sí, y sigue siendo tuyo. Si te vas, se desvincula.</p>
+  <p><b>¿Me pueden bloquear el WhatsApp?</b> Con volumen alto o mensajes iguales para todos, sí. Por eso
+  se escribe como persona. En Telegram ese riesgo no existe.</p>
+  <p><b>¿Puede hablar con la voz del dueño?</b> Sí, se clona con unos minutos de grabación. Se cotiza aparte.</p>
+  <p><b>¿Qué pasa con los datos de mis clientes?</b> Quedan en el sistema con fecha y hora, y se pueden
+  borrar a pedido. No se usan para otra cosa.</p>
 
-  <section>
-    <h2>Oferta fundador — 10 cupos</h2>
-    <p>Quedan <b>10 cupos</b>. Los primeros diez clientes entran con <b>la mensualidad congelada 12 meses</b>, voz propia del dueño
-       incluida y la garantía. No es una rebaja: es el precio de lista, congelado, y un cupo que se cierra.</p>
-    <div class="destacado" style="margin-top:10px">
-      <b>Garantía:</b> si en 30 días el asistente no contesta el 90% de tus consultas, te devolvemos el mes.
-      Se mide con el registro del propio sistema: consultas recibidas contra contestadas, con fecha y hora.
-    </div>
-    <p style="margin-top:10px">Cada cupo tomado se cuenta en público. Se acaban los cupos, no el reloj.</p>
-  </section>
+  <h2>Hablar con nosotros</h2>
+  <p>Escribinos y te mostramos el mostrador contestando de verdad, con precios y todo.</p>
+  <a class="cta" href="https://wa.me/595974393725?text=Quiero%20el%20mostrador%20para%20mi%20negocio">WhatsApp oficial · +595 974 393 725</a>
+  <a class="cta dos" href="https://wa.me/595986610322?text=Quiero%20el%20mostrador%20para%20mi%20negocio">WhatsApp vinculado · +595 986 610 322</a>
+  <p class="nota">Pagos y entrega: <b>+595 983 572 028</b> · <a href="/pagos.html" style="color:#C6F24E">formas de pago</a></p>
 
-  <section>
-    <h2>Cómo se instala</h2>
-    <ul>
-      <li><b>Entrevista</b> (40-60 min): qué atiende, horarios, precios, qué no contestar, tono y nombre.</li>
-      <li><b>Perfil propio</b>: memoria separada de la de otros clientes.</li>
-      <li><b>Guion</b>: saludo, preguntas, agenda y derivación.</li>
-      <li><b>Canal</b>: bot de Telegram o vinculación de WhatsApp con el celular en mano.</li>
-      <li><b>Pruebas</b>: 20 a 30 conversaciones reales, incluidos los casos incómodos.</li>
-      <li><b>Entrega acompañada</b>: el cliente lo usa una tarde y se corrige en vivo.</li>
-    </ul>
-    <p style="margin-top:8px"><b>Total: un día de trabajo.</b> Del lado del cliente: una hora de
-       conversación, cinco minutos de canal y una tarde de prueba.</p>
-  </section>
-
-  <section>
-    <h2>Los otros dos servicios</h2>
-    <div class="grid">
-      <div class="mini"><b>Automatización</b><span>Informes que se arman solos, vigilancia de servicios y respaldos que se entregan sin que nadie los pida.</span></div>
-      <div class="mini"><b>Auditoría de agentes IA</b><span>Saber qué está abierto antes de que lo encuentre otro. Se revisa, se documenta y se cierra.</span></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Preguntas que siempre aparecen</h2>
-    <p><b>¿Y si se cae internet del local?</b> El asistente no vive en el local: el teléfono solo tiene que
-       estar prendido y con datos. Si se apaga, deja de atender.</p>
-    <p><b>¿El número es mío?</b> Sí. Es tu número y sigue siendo tuyo. Si te vas, se desvincula.</p>
-    <p><b>¿Me pueden bloquear el WhatsApp?</b> Con volumen alto o mensajes iguales a todos, sí. Por eso se
-       escribe como persona y no como robot. En Telegram no existe ese riesgo.</p>
-    <p><b>¿Puede hablar con la voz del dueño?</b> Sí, se clona con cinco minutos de grabación. Está
-       incluido para los diez fundadores.</p>
-    <p><b>¿Qué pasa con los datos de mis clientes?</b> Quedan en el sistema, con fecha y hora, y se pueden
-       borrar a pedido. No se usan para otra cosa.</p>
-  </section>
-
-  <section>
-    <h2>Hablar con nosotros</h2>
-    <p>Escribinos por WhatsApp y te mostramos el asistente funcionando. Si querés, lo probamos 72 horas
-       con tu propio número y comparás lo que habría contestado una persona.</p>
-    <div class="botones">
-      <a class="boton" href="https://wa.me/595974393725?text=Hola%2C%20quiero%20saber%20de%20la%20secretar%C3%ADa%20con%20IA">Escribir al +595 974 393 725</a>
-      <a class="boton alt" href="https://wa.me/595986610322?text=Hola%2C%20quiero%20saber%20de%20la%20secretar%C3%ADa%20con%20IA">Escribir al +595 986 610322</a>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  Kaure Tienda Digital · Carlos Páez · Hernandarias, Alto Paraná, Paraguay<br>
-  +595 974 393 725 · +595 986 610322
-</footer>
-
+  <footer>todoescapeivan · kaure tienda digital · paraguay potente</footer>
+</div>
 </body>
 </html>
