@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auditoría de sistemas y agentes IA — Kaure</title>
+<meta name="description" content="Auditamos nuestro propio agente y encontramos tres cosas para corregir. Dos días de revisión, informe con semáforo rojo/amarillo/verde. Chequeo PYME Gs. 590.000. Si no hay nada que arreglar, no se cobra.">
+<style>
+  :root{ --verde:#082A22; --lima:#C6F24E; --oro:#D9B24C; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ background:var(--verde); color:#fff; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.55; }
+  .wrap{ max-width:780px; margin:0 auto; padding:26px 20px 70px; }
+  .marca{ color:var(--lima); font-size:12px; letter-spacing:3px; text-transform:uppercase; font-weight:700; }
+  h1{ font-family:Georgia,"Times New Roman",serif; font-weight:400; font-size:clamp(34px,8vw,54px);
+      line-height:1.08; margin:18px 0 12px; letter-spacing:-1px; }
+  h1 em{ color:var(--oro); font-style:normal; }
+  .sub{ font-size:clamp(17px,4.2vw,20px); color:rgba(255,255,255,.9); }
+  h2{ font-size:13px; letter-spacing:2.5px; text-transform:uppercase; color:var(--lima); margin:44px 0 16px; }
+  p{ margin-bottom:14px; color:rgba(255,255,255,.88); }
+  ul{ list-style:none; margin:0 0 18px; }
+  li{ display:flex; gap:11px; margin-bottom:11px; font-size:16px; }
+  li::before{ content:""; width:9px; height:9px; border-radius:50%; background:var(--lima); margin-top:9px; flex:0 0 9px; }
+  .semaforo li::before{ background:transparent; }
+  .r::before{ background:#E5484D !important; }
+  .a::before{ background:#E0B341 !important; }
+  .v::before{ background:#46A758 !important; }
+  .card{ border:1px solid rgba(255,255,255,.16); border-radius:14px; padding:18px 20px; margin-bottom:12px; }
+  .card.dest{ border-color:var(--lima); background:rgba(198,242,78,.08); }
+  .card .top{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap; }
+  .card strong{ font-size:18px; }
+  .card .precio{ color:var(--lima); font-weight:800; font-size:20px; white-space:nowrap; }
+  .card small{ display:block; margin-top:6px; color:rgba(255,255,255,.72); font-size:14px; }
+  .cita{ border-left:3px solid var(--oro); padding:6px 0 6px 18px; font-family:Georgia,serif; font-size:19px;
+    color:rgba(255,255,255,.92); margin:22px 0 18px; }
+  .cta{ display:block; text-align:center; background:var(--lima); color:#082A22; font-weight:800;
+    font-size:18px; padding:16px; border-radius:14px; text-decoration:none; margin:26px 0 10px; }
+  .cta.dos{ background:transparent; color:var(--lima); border:2px solid var(--lima); font-size:16px; }
+  .nota{ font-size:14px; color:rgba(255,255,255,.65); text-align:center; }
+  .dos{ display:flex; gap:12px; flex-wrap:wrap; }
+  .dos > div{ flex:1 1 240px; border:1px solid rgba(255,255,255,.14); border-radius:12px; padding:16px; }
+  .dos b{ color:var(--lima); }
+  footer{ margin-top:48px; padding-top:18px; border-top:1px solid rgba(255,255,255,.14);
+    font-size:12px; letter-spacing:2px; color:rgba(255,255,255,.5); text-transform:lowercase; text-align:center; }
+  footer a{ color:rgba(255,255,255,.75); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="marca">Kaure Tienda Digital · Todo Escape Iván</div>
+
+  <h1>Auditamos nuestro propio agente.<br><em>Y encontramos tres cosas para corregir.</em></h1>
+  <p class="sub">Siete capas revisadas. Cuatro bien, tres para cerrar. Publicamos el informe completo,
+  con lo que está mal: un agente que no se deja auditar no se puede vender.</p>
+
+  <a class="cta" href="https://wa.me/595974393725?text=Quiero%20la%20auditor%C3%ADa%20de%20mi%20sistema">Quiero la auditoría de mi sistema</a>
+  <p class="nota">Chequeo PYME Gs. 590.000 · si no hay nada que valga la pena arreglar, no se cobra</p>
+
+  <h2>Qué revisamos</h2>
+  <ul>
+    <li><b>Accesos:</b> quién puede entrar al WhatsApp, al correo y al sistema, y con qué contraseña.</li>
+    <li><b>Datos:</b> qué guarda el sistema de tus clientes, dónde y hasta cuándo.</li>
+    <li><b>Respaldos:</b> si existe copia y si alguien probó alguna vez restaurarla.</li>
+    <li><b>El agente:</b> si inventa precios, si filtra información y si queda registro de lo que hace.</li>
+    <li><b>Cuentas:</b> quién es dueño del número, de la página y del correo.</li>
+    <li><b>Permisos:</b> cuántas personas pueden tocar la configuración y quién dejó de trabajar ahí.</li>
+  </ul>
+
+  <h2>El informe: semáforo, en una página</h2>
+  <ul class="semaforo">
+    <li class="r"><b>Rojo</b> — urgente: algo está abierto hoy y se cierra esta semana.</li>
+    <li class="a"><b>Amarillo</b> — a mejorar: riesgo real, pero con fecha razonable.</li>
+    <li class="v"><b>Verde</b> — está bien: se documenta para que no se rompa después.</li>
+  </ul>
+  <p>Sin jerga y sin informe de 200 páginas que nadie lee. Una página, y qué cerrar primero.</p>
+
+  <div class="cita">"Guardaba el texto de cada conversación sin fecha de borrado. El cerebro es un modelo
+  externo: el texto de los clientes sale del país. Y el acceso al servidor no tenía segundo factor."<br>
+  — tres de nuestros propios hallazgos, publicados antes de corregirlos.</div>
+
+  <h2>Tres modalidades</h2>
+  <div class="card dest">
+    <div class="top"><strong>Chequeo PYME</strong><span class="precio">Gs. 590.000</span></div>
+    <small>90 minutos, esas seis preguntas y un semáforo en una página. Se entrega en 48 horas.
+    Incluye la prueba en vivo: le intentamos sacar los precios a tu propio bot, delante de vos.
+    Para saber dónde estás parado.</small>
+  </div>
+  <div class="card">
+    <div class="top"><strong>Auditoría completa</strong><span class="precio">Gs. 2.400.000</span></div>
+    <small>Lo mismo, más pruebas reales de inyección, informe completo y retest a los 30 días.
+    Para el que maneja datos de clientes: consultorios, estudios contables, maquilas.</small>
+  </div>
+  <div class="card">
+    <div class="top"><strong>Seguimiento</strong><span class="precio">Gs. 390.000 / mes</span></div>
+    <small>Revisión mensual, retest trimestral y aviso automático si algo se cae o cambia.
+    Incluye el informe de salud del sistema.</small>
+  </div>
+
+  <h2>Cómo se hace</h2>
+  <p><b>Día 1 —</b> revisión de accesos, datos, respaldos, agente, cuentas y permisos. Pruebas sobre el
+  sistema real, no sobre un cuestionario.</p>
+  <p><b>Día 2 —</b> informe con los hallazgos en rojo, amarillo y verde, y una devolución de 30 minutos
+  para explicarlo y ordenar el plan.</p>
+
+  <h2>Lo que no hacemos</h2>
+  <ul>
+    <li>No prometemos que no te van a hackear. Prometemos decirte qué está abierto.</li>
+    <li>No vendemos software ni licencias: si algo hay que arreglar, lo arregla quien vos quieras.</li>
+    <li>No publicamos tus hallazgos. Los nuestros sí, porque son el ejemplo.</li>
+  </ul>
+
+  <h2>La garantía</h2>
+  <p><b>Si no hay nada que valga la pena arreglar, no se cobra.</b> No es una frase de marketing:
+  si el informe sale todo en verde, se entrega igual y no se factura.</p>
+
+  <h2>Hablar con nosotros</h2>
+  <div class="dos">
+    <div><b>WhatsApp</b><br>+595 974 393 725</div>
+    <div><b>Pagos y entrega</b><br>+595 983 572 028</div>
+  </div>
+  <a class="cta" href="https://wa.me/595974393725?text=Quiero%20la%20auditor%C3%ADa%20de%20mi%20sistema">Pedir el chequeo PYME</a>
+  <a class="cta dos" href="/kaure/">Ver el mostrador con IA</a>
+  <p class="nota"><a href="/pagos.html" style="color:#C6F24E">Formas de pago: transferencia o BTC</a></p>
+
+  <footer>todoescapeivan · kaure tienda digital · paraguay potente</footer>
+</div>
+</body>
+</html>
